@@ -9,7 +9,8 @@ const Dashboard = ({ onSidebarHide }) => {
       <div className="main-container">
         <SearchBar onSidebarHide={onSidebarHide} />
         {/* Do pass these classes as props when calling the component in dashboard */}
-        <TopResearcher classes={"w-full lg:w-1/3"} />
+        {/* <TopResearcher classes={"w-full lg:w-1/3"} /> */}
+        <TopResearcher />
       </div>
     </div>
   )
