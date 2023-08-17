@@ -6,7 +6,7 @@ import MenuItem from './MenuItem';
 import logo from '../assests/logo.png'
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 import { BiInfoCircle } from 'react-icons/bi';
-const Sidebar = ({ onSidebarHide, showSidebar }) => {
+const Sidebar = ({ onSetShowSidebar, showSidebar }) => {
     const { dashOffset, indicatorWidth, precentage } = useSpring({
         dashOffset: 26.015,
         indicatorWidth: 70,
@@ -35,7 +35,7 @@ const Sidebar = ({ onSidebarHide, showSidebar }) => {
                     </div>
                     <div className="flex-grow sm:hidden xl:block" />
 
-                    <button onClick={onSidebarHide} type="button" className="block sm:hidden">
+                    <button onClick={()=>{onSetShowSidebar(false)}} type="button" className="block sm:hidden">
                         <AiOutlineCloseCircle className="w-full h-full" size='25px' />
                     </button>
                 </div>
