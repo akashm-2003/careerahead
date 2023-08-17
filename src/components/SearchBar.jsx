@@ -1,6 +1,6 @@
 import { RiArrowDropRightFill, RiMenu3Fill } from "react-icons/ri"
 import { AiOutlineSearch} from "react-icons/ai"
-const SearchBar = ({ onSidebarHide }) => {
+const SearchBar = ({ onSetShowSidebar }) => {
   return (
     <div className="w-full sm:flex p-2 items-end">
       <div className="sm:flex-grow flex justify-between">
@@ -13,7 +13,7 @@ const SearchBar = ({ onSidebarHide }) => {
             <div className="ml-2">October 26</div>
           </div>
         </div>
-        <button onClick={onSidebarHide} type="button" className='block sm:hidden'>
+        <button onClick={()=>{onSetShowSidebar(true)}} type="button" className='block sm:hidden'>
           <RiMenu3Fill className="w-5 h-5" />
         </button>
       </div>

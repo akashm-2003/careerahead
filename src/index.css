@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -8,11 +9,13 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
+  scrollbar-width: none; 
+}
+body::-webkit-scrollbar {
+  display: none;
 }
 
-
-/* Constants */
+/* Constants */ 
 
 /* To use  */
 /*  color: var(--custom-color); */
@@ -25,6 +28,7 @@ body {
     --bgColor: "#1e1e1e";
     --bgCard: "#171717";
     --bgIcon: '#2d2d2d';
+    --bgCardLight:'#252525';
 
     --hoverItem: '#a1a0a0';
     --selectedItem: '#fff';
@@ -37,7 +41,7 @@ body {
     --mobile: "768px";
     --tab: "998px";
 }
-
+ 
 
 /* ShortHand for styling for dashboard */
 @layer components {
@@ -55,7 +59,9 @@ body{
   color:#676767;
   background-color: #1e1e1e;
 }
-
+.higlihted-text{
+  color: #fff;
+}
 .bg-card{
   background-color:#171717;
 }

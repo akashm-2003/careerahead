@@ -12,6 +12,7 @@ import Sidebar from './components/Sidebar';
 import Dashboard from './pages/Dashboard/Dashboard';
 import { ThemeProvider } from "styled-components";
 import Scholarship from './pages/Scholarship/Scholarship';
+import Error404Page from './pages/Error404Page/Error404Page';
 function App() {
 
   const [showSidebar, onSetShowSidebar] = useState(false);
@@ -19,10 +20,8 @@ function App() {
   return (
     <>
         <Router>
-          <div className="flex">
-            <Sidebar onSidebarHide={() => { onSetShowSidebar(false); }} showSidebar={showSidebar} />
             <Routes>
-              <Route path="/" element={<Dashboard onSidebarHide={() => { onSetShowSidebar(true); }} />} />
+              <Route path="/" element={<Dashboard  showSidebar={showSidebar} onSetShowSidebar={onSetShowSidebar} />} />
               <Route path="/login" element={<Login />} />
               <Route path="/professor" element={<Professor />} />
               <Route path="/researchpaper" element={<ResearchPaper />} />
@@ -30,8 +29,8 @@ function App() {
               <Route path="/summarizer" element={<Summarizer />} />
               <Route path="/scholarship" element={<Scholarship />} />
               <Route path="/about" element={<About />} />
+              <Route path="*" element={<Error404Page onSidebarHide={() => { onSetShowSidebar(true); }}/>} />
             </Routes>
-          </div>
         </Router>
     </>
   );
