@@ -12,10 +12,10 @@ import LinkedIn from '../../assests/linkedin.png';
 
 const TopResearcher = ({ name, university, imgId, domains, classes }) => {
   return (
-    <div className={` m-2 w-full lg:w-1/3 `}>
+    <div className={` m-2 w-full lg:w-1/3 ${classes}`}>
       <div className="rounded-lg shadow-md bg-card flex justify-between p-3 h-32 bg-[#171717]">
         <div className="flex items-center ">
-          <img src={imgId || AltImg} alt="Profile" className="rounded-full" />
+          <img src={imgId || AltImg} alt="Profile" className="rounded-full border-box" />
         </div>
         <div className="">
           <div className="flex items-start">
