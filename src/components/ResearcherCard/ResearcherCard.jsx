@@ -6,16 +6,20 @@ import { FiExternalLink } from "react-icons/fi";
 import { SiGmail } from "react-icons/si";
 import { FaInfoCircle } from "react-icons/fa";
 import "./ResearcherCard.css";
-import AltImg from '../../assests/profile.png';
+import AltImg from '../../assests/profile1.png';
 import Gmail from '../../assests/gmail.png';
 import LinkedIn from '../../assests/linkedin.png';
 
 const TopResearcher = ({ name, university, imgId, domains, classes }) => {
   return (
-    <div className={` m-2 w-full lg:w-1/3 ${classes}`}>
-      <div className="rounded-lg shadow-md bg-card flex justify-between p-3 h-32 bg-[#171717]">
-        <div className="flex items-center ">
-          <img src={imgId || AltImg} alt="Profile" className="rounded-full border-box" />
+    <div className={` m-2 lg:w-1/3 md:w-1/2 sm:w-full  ${classes}`}>
+      <div className="rounded-lg shadow-md flex justify-between p-3 h-32 bg-[#252525]">
+        <div className="flex items-center">
+          <img
+            src={imgId || AltImg}
+            alt="Profile"
+            className="rounded-full border-box border-r-6"
+          />
         </div>
         <div className="">
           <div className="flex items-start">
@@ -44,7 +48,7 @@ const TopResearcher = ({ name, university, imgId, domains, classes }) => {
         <div className="flex items-center flex-col ">
           <FaInfoCircle className="domain-icon icon  hover:text-white" />
           <img src={Gmail} alt="gmail" className="social-icons m-3" />
-          <img src={LinkedIn} alt="Linkedin" className="social-icons m-3" />
+          <img src={LinkedIn} alt="Linkedin" className="social-icons m-2" />
         </div>
         {/* <div className="flex items-center flex-col relative">
           <FaInfoCircle className="domain-icon icon hover:text-blue-800 absolute top-0 right-0 mt-0 mr-0" /> */}

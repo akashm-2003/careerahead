@@ -14,14 +14,14 @@ const Carousel = ({ slides, autoSlide = false, autoSlideInterval = 3000 }) => {
     return () => clearInterval(slideInterval);
   }, []);
   return (
-    <div className="overflow-hidden relative">
+    <div className="overflow-hidden relative ">
       <div
         className={`flex transition-transform justify-between items-center ease-out duration-500 `}
         style={{
           transform:
             window.innerWidth <= 768
               ? `translateX(-${current * 100}%)`
-              : `translateX(-${(current * 100) / 3}%)`,
+              : `translateX(-${(current * 100/3)}%)`,
         }}
         // sm:translateX(-${current * 100}%) lg:translateX(-${current * 100/3}%)
         // style={{
