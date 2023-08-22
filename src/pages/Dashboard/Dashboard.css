@@ -1,9 +1,65 @@
-.universityContent{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin-top: 20px;
-    margin-bottom: 20px;
+.universityContent { 
+  display: flex;
+  height: 90%;
+  justify-content: center;
+  align-items: center;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.universityContent::-webkit-scrollbar {
+  height: 0.5em;
+}
+.universityScroll {
+  display: grid;
+  grid-auto-columns: max-content;
+  grid-template-rows: auto;
+  width: 100%;
+  column-gap: 0;
+}
+.collegeHeading {
+  font-weight: 600;
+  margin: 0.5em 0;
+}
+.researcherPaper {
+  display: flex;
+  /* justify-content: center;
+    align-items: center; */
+  flex-direction: column;
+}
+
+.height90 {
+  height: 90%;
+}
+.height30em {
+  height: 30em;
+}
+.researchCardMainHome {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+  height: 30em;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+}
+.researchCardMainHome::-webkit-scrollbar {
+ display: none;
+}
+.researchCardContentHome {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+.researchCardScrollHome {
+  display: grid;
+  grid-auto-rows: max-content;
+  grid-template-columns: auto;
+  column-gap: 0;
+  height: fit-content;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 100%;
 }
