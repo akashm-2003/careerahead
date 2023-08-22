@@ -51,7 +51,7 @@ const Professor = ({ showSidebar, onSidebarHide, onSetShowSidebar }) => {
               </div>
             </div>
             <div className="flex flex-col w-full bg-contain bg-[#171717]">
-              <div className="w-full flex flex-row flex-shrink-0 justify-between items-center overflow-x-auto scroll-m-1">
+              <div className="w-full flex flex-row flex-shrink-0 justify-between items-center overflow-x-auto professorMainContainer">
                 {slides.map((item) => {
                   return item;
                 })}
