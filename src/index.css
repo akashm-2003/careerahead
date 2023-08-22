@@ -9,33 +9,44 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  scrollbar-width: none; 
 }
-body::-webkit-scrollbar {
-  display: none;
+*::-webkit-scrollbar {
+    width: 5px;
+}
+*::-webkit-scrollbar-track {
+  background: black;
+}
+*::-webkit-scrollbar-thumb {
+  background: #888;
 }
 
+@media (max-width: 1025px){
+  *::-webkit-scrollbar {
+    display: none;
+}
+}
 /* Constants */ 
 
 /* To use  */
 /*  color: var(--custom-color); */
 :root {
 
-    --heading: "rgb(24 24 29)";
-    --unHighlightedText: "#676767";
-    --highlightedText: "#fff";
+    --heading: rgb(24 24 29);
+    --unHighlightedText: #676767;
+    --highlightedText: #fff;
 
-    --bgColor: "#1e1e1e";
-    --bgCard: "#171717";
-    --bgIcon: '#2d2d2d';
-    --bgCardLight:'#252525';
+    --bgColor: #1e1e1e;
+    --bgCard: #171717;
+    --bgIcon: #2d2d2d;
+    --bgCardLight:#252525;
+    --bgCardDark:#1d1d1d;
 
-    --hoverItem: '#a1a0a0';
-    --selectedItem: '#fff';
+    --hoverItem: #a1a0a0;
+    --selectedItem: #fff;
 
-    --white: "#fff";
-    --black: " #000";
-    --hr: "#2e2e2e";
+    --white: #fff;
+    --black:  #000;
+    --hr: #2e2e2e;
 
 
     --mobile: "768px";
@@ -51,9 +62,6 @@ body::-webkit-scrollbar {
   .smallerDevice-container{
     @apply w-full h-screen hidden sm:block sm:w-20 xl:w-60 flex-shrink-0;
   }
-}
-*::-webkit-scrollbar {
-  display: none;
 }
 body{
   color:#676767;
