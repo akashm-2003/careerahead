@@ -1,5 +1,6 @@
 import React from 'react'
 import SearchBar from '../../components/SearchBar';
+import TopResearcher from '../../components/ResearcherCard/ResearcherCard';
 import Sidebar from '../../components/Sidebar';
 import './Dashboard.css'
 import CollegeCard from '../../components/CollegeCard/CollegeCard';

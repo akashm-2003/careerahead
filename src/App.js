@@ -19,19 +19,44 @@ function App() {
 
   return (
     <>
-        <Router>
-            <Routes>
-              <Route path="/" element={<Dashboard  showSidebar={showSidebar} onSetShowSidebar={onSetShowSidebar} />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/professor" element={<Professor />} />
-              <Route path="/researchpaper" element={<ResearchPaper />} />
-              <Route path="/profile" element={<Profile />} />
-              <Route path="/summarizer" element={<Summarizer />} />
-              <Route path="/scholarship" element={<Scholarship />} />
-              <Route path="/about" element={<About />} />
-              <Route path="*" element={<Error404Page onSidebarHide={() => { onSetShowSidebar(true); }}/>} />
-            </Routes>
-        </Router>
+      <Router>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Dashboard
+                showSidebar={showSidebar}
+                onSetShowSidebar={onSetShowSidebar}
+              />
+            }
+          />
+          <Route path="/login" element={<Login />} />
+          <Route
+            path="/professor"
+            element={
+              <Professor
+                showSidebar={showSidebar}
+                onSetShowSidebar={onSetShowSidebar}
+              />
+            }
+          />
+          <Route path="/researchpaper" element={<ResearchPaper />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/summarizer" element={<Summarizer />} />
+          <Route path="/scholarship" element={<Scholarship />} />
+          <Route path="/about" element={<About />} />
+          <Route
+            path="*"
+            element={
+              <Error404Page
+                onSidebarHide={() => {
+                  onSetShowSidebar(true);
+                }}
+              />
+            }
+          />
+        </Routes>
+      </Router>
     </>
   );
 }

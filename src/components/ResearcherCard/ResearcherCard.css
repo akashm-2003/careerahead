@@ -1,0 +1,71 @@
+.circle-tick-icon {
+  /* width: 50px; */
+  /* height: 50px; */
+  border-radius: 50%;
+  background-color: rgb(0, 0, 0); /* Circle color */
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.tick-icon {
+  color: #278adb; /* Tick color */
+  /* font-size: 30px; */
+}
+
+.university-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15px;
+  height: 15px;
+  background-color: rgba(255, 255, 255, 0); /* Icon background color */
+  border-radius: 50%;
+}
+
+.uni-icon {
+  color: #19c314;
+}
+
+.icon {
+  color: #a1a0a1; /* Icon color */
+  /* font-size: 30px; */
+}
+
+.domain-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* width: 60px; */
+  /* height: 60px; */
+  background-color: #171717; /* Icon background color */
+  border-radius: 50%;
+}
+
+.dom-icon {
+  color: #278adb;
+}
+
+.social-icons {
+  width: 20px;
+  height: 20px;
+  box-sizing: border-box;
+}
+
+.social {
+  width: 25px;
+  height: 25px;
+  color: #DB2777;
+}
+
+@media not all and (min-width : 640px) {
+  .professor-card-width {
+    width: 320px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .professor-card-width {
+    width: 400px;
+  }
+}
