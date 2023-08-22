@@ -50,7 +50,7 @@ const Professor = ({ showSidebar, onSidebarHide, onSetShowSidebar }) => {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col w-full bg-contain bg-bgCard">
+            <div className="flex flex-col w-full bg-contain bg-[#171717]">
               <div className="w-full flex flex-row flex-shrink-0 justify-between items-center overflow-x-auto scroll-m-1">
                 {slides.map((item) => {
                   return item;
@@ -71,14 +71,14 @@ const Professor = ({ showSidebar, onSidebarHide, onSetShowSidebar }) => {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col w-full bg-contain bg-bgCard">
+            <div className="flex flex-col w-full bg-contain bg-[#171717]">
               {/* <div className="flex flex-row w-full justify-between items-center">
               classes={"w-full lg:w-1/3 md:w-1/2 sm:w-full"}
               <ResearcherCard />
               <ResearcherCard />
               <ResearcherCard />
             </div> */}
-              <div className="w-full flex flex-row flex-shrink-0 justify-between items-center overflow-x-auto scroll-m-1">
+              <div className="w-full flex flex-row flex-shrink-0 justify-between items-center overflow-x-auto firefox-overflow">
                 {slides.map((item) => {
                   return item;
                 })}

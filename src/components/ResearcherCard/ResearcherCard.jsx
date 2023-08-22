@@ -12,8 +12,8 @@ import LinkedIn from '../../assests/linkedin.png';
 
 const TopResearcher = ({ name, university, imgId, domains, classes }) => {
   return (
-    <div className={` m-2 lg:w-1/3 md:w-1/2 sm:w-full  ${classes}`}>
-      <div className="rounded-lg shadow-md flex justify-between p-3 h-32 bg-[#252525]">
+    <div className={` m-2 lg:w-1/3 md:w-1/2 sm:w-full professor-card-width ${classes}`}>
+      <div className="rounded-lg shadow-md flex justify-between p-3 h-32 bg-[#252525] bg-contain">
         <div className="flex items-center">
           <img
             src={imgId || AltImg}
@@ -45,16 +45,11 @@ const TopResearcher = ({ name, university, imgId, domains, classes }) => {
             {/* <FiExternalLink className=" mt-1.5 domain-icon icon hover:text-white text-gray-700" /> */}
           </div>
         </div>
-        <div className="flex items-center flex-col ">
+        <div className="flex items-center flex-col justify-between">
+          <img src={Gmail} alt="gmail" className="social-icons" />
+          <img src={LinkedIn} alt="Linkedin" className="social-icons" />
           <FaInfoCircle className="domain-icon icon  hover:text-white" />
-          <img src={Gmail} alt="gmail" className="social-icons m-3" />
-          <img src={LinkedIn} alt="Linkedin" className="social-icons m-2" />
         </div>
-        {/* <div className="flex items-center flex-col relative">
-          <FaInfoCircle className="domain-icon icon hover:text-blue-800 absolute top-0 right-0 mt-0 mr-0" /> */}
-        {/* <FaLinkedin className="social mt-4" /> */}
-        {/* <SiGmail className="social" /> */}
-        {/* </div> */}
       </div>
     </div>
   );

@@ -14,14 +14,30 @@
 }
 
 /* Webkit-based browsers like Chrome and Safari */
-.overflow::-webkit-scrollbar {
-  width: 8px;
+@media not all and (min-width: 1024px) {
+  .firefox-overflow::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .firefox-overflow::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  .firefox-overflow::-webkit-scrollbar-thumb {
+    background-color: gray;
+  }
 }
 
-.overflow::-webkit-scrollbar-track {
-  background-color: transparent;
+.professor-scroll {
+  overflow-x: auto;
 }
 
-.overflow::-webkit-scrollbar-thumb {
-  background-color: gray;
+.professor-scroll::-webkit-scrollbar {
+  height: 5px;
+}
+
+/* .professor-scroll.professor-scroll::webkit-scr */
+
+@media not all and (min-width: 640px) {
+  
 }
