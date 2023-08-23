@@ -13,6 +13,7 @@ import Dashboard from './pages/Dashboard/Dashboard';
 import { ThemeProvider } from "styled-components";
 import Scholarship from './pages/Scholarship/Scholarship';
 import Error404Page from './pages/Error404Page/Error404Page';
+import SignUp from './pages/SignUp/SignUp';
 function App() {
 
   const [showSidebar, onSetShowSidebar] = useState(false);
@@ -45,6 +46,7 @@ function App() {
           <Route path="/summarizer" element={<Summarizer />} />
           <Route path="/scholarship" element={<Scholarship />} />
           <Route path="/about" element={<About />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route
             path="*"
             element={
