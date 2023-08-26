@@ -1,0 +1,19 @@
+.landing-page-gradient-intro {
+    background-image: linear-gradient(to right, rgb(108, 80, 220), rgb(0, 213, 255));
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.landing-intro-height {
+    height: 100vh;
+}
+
+.intro-headline {
+    font-size: 3rem;
+    font-weight: 600;
+    color: white;
+}
+
+.landing-subheader {
+    font-size: 1.2rem;
+}

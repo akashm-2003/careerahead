@@ -1,0 +1,14 @@
+.txt-rotate > .landing-intro-wrap {
+  border-right: 0.09em solid #000000;
+}
+
+.landing-intro-wrap {
+    font-style: oblique;
+    /* color: black; */
+    font-size: 2rem;
+    text-shadow: 2px 2px #aeadadb0;
+}
+
+/* .landing-subheader {
+  font-size: 3rem
+} */

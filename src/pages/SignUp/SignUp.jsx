@@ -1,20 +1,20 @@
-import React, { useState } from "react";
+import React from 'react';
 import { FcGoogle } from "react-icons/fc";
 import LinkedIn from "../../assests/linkedin.png";
+import './SignUp.css';
 
-import "./Login.css";
-
-const Login = () => {
+const SignUp = () => {
   return (
-    <div className="flex justify-center bg-gradient-login items-center h-screen ">
-      <div className="flex login-page-background rounded-lg p-4 bg-shadow flex-col login-page">
+    <div className="flex justify-center bg-gradient-signup items-center h-screen ">
+      <div className="flex signup-page-background rounded-lg p-4 bg-shadow-signup flex-col signup-page">
         <h1 className="flex font-bold text-lg text-white items-center justify-center">
           Masters Way
         </h1>
         <hr className="mt-2 mb-2" />
-        {/* Log in Component */}
-        <h1 className="text-lg mt-2 text-gray-400">Log in</h1>
-        <h2 className="text-sm text-[#676767]">Continue your research</h2>
+        <h1 className="text-lg mt-2 text-white">Create a Masters Way ID</h1>
+        <h2 className="text-sm text-[#676767]">
+          One step before starting your research
+        </h2>
         <div className="mt-4">
           <div className="flex flex-col p-1">
             <label htmlFor="email" className="mt-2 mb-1 text-xl text-white">
@@ -35,12 +35,24 @@ const Login = () => {
               type="password"
               name="password"
               id="password"
+              className="rounded-md  text-lg border h-[2.5em] border-gray-400 input-clicked-signup bg-[#1e1e1e] "
+              // className="rounded-md text-lg border hover:border-b-2 bg-[#1e1e1e]"
+            />
+          </div>
+          <div className="flex flex-col p-1 mb-3">
+            <label htmlFor="password" className="mt-2 mb-1 text-xl text-white">
+              Confirm Password
+            </label>
+            <input
+              type="password"
+              name="confirmPassword"
+              id="confirmPassword"
               className="rounded-md  text-lg border h-[2.5em] border-gray-400 input-clicked-login bg-[#1e1e1e] "
               // className="rounded-md text-lg border hover:border-b-2 bg-[#1e1e1e]"
             />
           </div>
           <button type="submit" className="border items-center justify-center rounded-lg p-2 flex mt-3 mb-2 w-full hover:bg-gray-800">
-            <p className="flex text-white">Log into your account</p>
+            <p className="flex text-white">Create your account</p>
           </button>
           <div className="flex items-center">
             <hr className="flex-grow border-t-2 border-gray-200" />
@@ -67,15 +79,13 @@ const Login = () => {
             </button>
           </div>
           <div className="flex mt-2">
-            <p className="text-sm mr-1">New to Career Ahead ?</p>
-            <p className="text-blue-500 hover:underline text-sm">
-              Register Now
-            </p>
+            <p className="text-sm mr-1">Already have an Account ?</p>
+            <p className="text-blue-500 hover:underline text-sm">Login here</p>
           </div>
         </div>
       </div>
     </div>
   );
-};
+}
 
-export default Login;
+export default SignUp

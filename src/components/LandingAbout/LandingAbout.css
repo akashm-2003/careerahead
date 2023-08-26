@@ -1,0 +1,10 @@
+.gradient-border-text-desc {
+  border-width: 5px;
+  border-style: solid;
+  border-image: linear-gradient(to bottom, #36a7db, #0c4e84) 1 100%;
+  border-right: 0;
+  padding: 2px;
+  /* max-width: 250px;
+  padding: 1rem;
+  color: white; */
+}
