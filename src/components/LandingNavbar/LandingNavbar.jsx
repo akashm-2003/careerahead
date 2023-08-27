@@ -23,12 +23,12 @@ const LandingNavbar = () => {
         bottom: 5,
       }}
           dragElastic
-          className="absolute right-5 top-5 z-10"
+          className="absolute right-5 top-5 z-20"
     >
       {openMenu ? (
         <>
           <AiOutlineCloseCircle size={25} color="red" className=" rounded-full absolute right-0"/>
-          <div className="bg-[#171717] rounded-md p-2 m-2 flex flex-col items-start">
+          <div className="bg-[#171717] rounded-md p-2 m-5 flex flex-col items-start">
             <p className="flex hover:text-white">Login</p>
             <p className="flex hover:text-white">Sign Up</p>
           </div>

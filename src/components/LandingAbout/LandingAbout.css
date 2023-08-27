@@ -1,9 +1,11 @@
 .gradient-border-text-desc {
   border-width: 5px;
   border-style: solid;
-  border-image: linear-gradient(to bottom, #36a7db, #0c4e84) 1 100%;
+  /* border-image: linear-gradient(to bottom, #36a7db 1.9%, #0c4e84 97.5%) 1 100%; */
+  border-image: linear-gradient(to bottom,  #00cea8 1.9%, #bf61ff 97.5%) 1 100%;
+  /* border-image: linear-gradient(90.13deg, #00cea8 1.9%, #bf61ff 97.5%); */
   border-right: 0;
-  padding: 2px;
+  padding: 5px;
   /* max-width: 250px;
   padding: 1rem;
   color: white; */

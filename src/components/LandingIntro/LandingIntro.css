@@ -12,3 +12,12 @@
 /* .landing-subheader {
   font-size: 3rem
 } */
+
+.landing-intro-background {
+  background: linear-gradient(90.13deg, #00cea8 1.9%, #bf61ff 97.5%);
+  background: -webkit-linear-gradient(-90.13deg, #00cea8 1.9%, #bf61ff 97.5%);
+}
+
+.landing-intro-height {
+  height: 100vh;
+}

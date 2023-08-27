@@ -1,19 +1,21 @@
 .landing-page-gradient-intro {
-    background-image: linear-gradient(to right, rgb(108, 80, 220), rgb(0, 213, 255));
+  /* background-image: linear-gradient(to right, rgb(108, 80, 220), rgb(0, 213, 255));
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
+  background: linear-gradient(90.13deg, #00cea8 1.9%, #bf61ff 97.5%);
+  background: -webkit-linear-gradient(-90.13deg, #00cea8 1.9%, #bf61ff 97.5%);
 }
 
 .landing-intro-height {
-    height: 100vh;
+  height: 100vh;
 }
 
 .intro-headline {
-    font-size: 3rem;
-    font-weight: 600;
-    color: white;
+  font-size: 3rem;
+  font-weight: 600;
+  color: white;
 }
 
 .landing-subheader {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }

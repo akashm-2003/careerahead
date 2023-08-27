@@ -12,7 +12,7 @@ const LandingIntro = () => {
     const [delta, setDelta] = useState(300 - Math.random() * 100);
     const [index, setIndex] = useState(1);
     const toRotate = ["Research", "Summarize", "Comprehend"];
-    const period = 1000;
+    const period = 500;
 
     useEffect(() => {
       let ticker = setInterval(() => {
@@ -45,18 +45,18 @@ const LandingIntro = () => {
         setIsDeleting(false);
         setLoopNum(loopNum + 1);
         setIndex(1);
-        setDelta(500);
+        setDelta(250);
       } else {
         setIndex((prevIndex) => prevIndex + 1);
       }
     };
   return (
-    <div className='flex items-center justify-center flex-col'>
+    <div className='landing-intro-background flex items-center justify-center flex-col w-full h-full'>
       <motion.p
         variants={textVariant()}
         animate='show'
         initial='hidden'
-        className=" flex text-md text-white mt-2 mb-4"
+        className=" flex text-md text-white mt-2 mb-4 p-4"
       >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi sunt
         pariatur optio accusantium dolor. Distinctio labore tenetur id illum
         veniam.
@@ -72,4 +72,4 @@ const LandingIntro = () => {
   );
 }
 
-export default SectionWrapper(LandingIntro, 'landing-intro');
+export default LandingIntro;
