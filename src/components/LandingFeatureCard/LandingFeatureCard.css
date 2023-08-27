@@ -1,0 +1,36 @@
+.green-pink-gradient {
+  background: "#00cea8";
+  background: linear-gradient(90.13deg, #00cea8 1.9%, #bf61ff 97.5%);
+  background: -webkit-linear-gradient(-90.13deg, #00cea8 1.9%, #bf61ff 97.5%);
+}
+
+.glassy-card {
+  background-color: rgba(0, 0, 0, 0.777); /* Semi-transparent black */
+  backdrop-filter: blur(10px); /* Blur effect */
+  border-radius: 10px;
+  padding: 20px;
+  /* width: 300px; Adjust the width as needed */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow effect */
+  color: white; /* Text color to be visible on black background */
+}
+
+/* .glassy-card-border {
+  max-width: 250px;
+  padding: 1rem;
+  position: relative;
+  background: linear-gradient(to right, rgb(30, 194, 223), rgb(215, 49, 215));
+  padding: 3px;
+} */
+.glassy-card-border {
+  /* border: 5px;
+  color: #FFF; */
+  /* background: #000; */
+  /* background-clip: padding-box; !importanté */
+  /* border: solid $border transparent; !importanté */
+  /* border-radius: 1em; */
+
+  border-image: linear-gradient(to bottom, #36a7db, #0c4e84);
+  border-width: 5px;
+  border-style: solid;
+  border-radius: 2px;
+}
