@@ -12,7 +12,7 @@
 }
 
 .signup-page {
-    width: 400px 
+    width: 400px; 
 }
 
 @media not all and (min-width: 400px) {
@@ -30,4 +30,8 @@
     border-color: rgb(15, 177, 231);
     box-shadow:1px 1px 1px skyblue;
     /* background-color: antiquewhite; */
+}
+
+.social-icons {
+    width: 20px;
 }
