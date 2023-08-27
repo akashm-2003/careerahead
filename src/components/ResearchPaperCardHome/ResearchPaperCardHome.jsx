@@ -13,7 +13,7 @@ const ResearchPaperCardHome = () => {
                         <h1 className="researchCardNameTextHome">Machine Learning Model</h1>
                     </div>
                     <div className="researchCardDetailsHome">
-                        <h1 className="researchCardDetailsTextHome">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, harum.</h1>
+                        <h1 className="researchCardDetailsTextHome">Lorem ipsum dolor sit amet  dsssssss consectetur adipisicing elit. Iusto, harum.</h1>
                     </div>
 
                 </div>

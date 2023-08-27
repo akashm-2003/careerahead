@@ -1,12 +1,16 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import Sidebar from '../../components/Sidebar'
 import SearchBar from '../../components/SearchBar'
 import ResearchPaperCard from '../../components/ResearchPaperCard/ResearchPaperCard'
 import './ResearchPaper.css'
-const ResearchPaper = ({ onSetShowSidebar, showSidebar }) => {
+import ResearchPaperCardSkeleton from '../../components/ResearchPaperCard/ResearchPaperCardSkeleton'
+const ResearchPaper = ({ onSetShowSidebar, showSidebar, selected, setSelected }) => {
+  useEffect(() => {
+    setSelected("2")
+  }, [])
   return (
     <>
-      <Sidebar showSidebar={showSidebar} onSetShowSidebar={onSetShowSidebar} />
+      <Sidebar showSidebar={showSidebar} onSetShowSidebar={onSetShowSidebar} selected={selected} setSelected={setSelected} />
       <div className="flex w-full">
         <div className="smallerDevice-container">
         </div>
@@ -23,16 +27,14 @@ const ResearchPaper = ({ onSetShowSidebar, showSidebar }) => {
               <div className="researchContent">
                 <div className="researchScroll">
                   <ResearchPaperCard />
-                  <ResearchPaperCard />
-                  <ResearchPaperCard />
-                  <ResearchPaperCard />
-                  <ResearchPaperCard />
-                  <ResearchPaperCard />
-                  <ResearchPaperCard />
-                  <ResearchPaperCard />
-                  <ResearchPaperCard />
-                  <ResearchPaperCard />
-                  <ResearchPaperCard />
+                 <ResearchPaperCardSkeleton/>
+                 <ResearchPaperCardSkeleton/>
+                 <ResearchPaperCardSkeleton/>
+                 <ResearchPaperCardSkeleton/>
+                 <ResearchPaperCardSkeleton/>
+                 <ResearchPaperCardSkeleton/>
+                 <ResearchPaperCardSkeleton/>
+                 <ResearchPaperCardSkeleton/>
                 </div>
               </div>
             </div>

@@ -8,59 +8,53 @@ import ResearchPaper from './pages/ResearchPaper/ResearchPaper';
 import Profile from './pages/Profile/Profile';
 import Summarizer from './pages/Summarizer/Summarizer';
 import About from './pages/About/About';
-import Sidebar from './components/Sidebar';
 import Dashboard from './pages/Dashboard/Dashboard';
-import { ThemeProvider } from "styled-components";
 import Scholarship from './pages/Scholarship/Scholarship';
 import Error404Page from './pages/Error404Page/Error404Page';
 import SignUp from './pages/SignUp/SignUp';
 import LandingPage from './pages/LandingPage/LandingPage';
+import { SkeletonTheme } from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css'
 function App() {
 
   const [showSidebar, onSetShowSidebar] = useState(false);
-
+  const [selected, setSelected] = useState("0");
   return (
     <>
-      <Router>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Dashboard
-                showSidebar={showSidebar}
-                onSetShowSidebar={onSetShowSidebar}
-              />
-            }
-          />
-          <Route path="/login" element={<Login />} />
-          <Route
-            path="/professor"
-            element={
-              <Professor
-                showSidebar={showSidebar}
-                onSetShowSidebar={onSetShowSidebar}
-              />
-            }
-          />
-          <Route path="/researchpaper" element={<ResearchPaper />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/summarizer" element={<Summarizer />} />
-          <Route path="/scholarship" element={<Scholarship />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/landing" element={<LandingPage />} />
-          <Route
-            path="*"
-            element={
-              <Error404Page
-                onSidebarHide={() => {
-                  onSetShowSidebar(true);
-                }}
-              />
-            }
-          />
-        </Routes>
-      </Router>
+      <SkeletonTheme highlightColor="lightblue" baseColor='#888'>
+        <Router>
+          <Routes>
+            <Route path="/" element={<Dashboard showSidebar={showSidebar} onSetShowSidebar={onSetShowSidebar} selected={selected} setSelected={setSelected} />} />
+            <Route path="/login" element={<Login />} />
+            <Route
+              path="/professor"
+              element={
+                <Professor
+                  showSidebar={showSidebar}
+                  onSetShowSidebar={onSetShowSidebar}
+                  selected={selected} setSelected={setSelected}
+                />
+              }
+            />
+            <Route path="/researchpaper" element={<ResearchPaper showSidebar={showSidebar} onSetShowSidebar={onSetShowSidebar} selected={selected} setSelected={setSelected} />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/summarizer" element={<Summarizer />} />
+            <Route path="/scholarship" element={<Scholarship />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route
+              path="*"
+              element={
+                <Error404Page
+                  onSidebarHide={() => {
+                    onSetShowSidebar(true);
+                  }}
+                />
+              }
+            />
+          </Routes>
+        </Router>
+      </SkeletonTheme>
     </>
   );
 }

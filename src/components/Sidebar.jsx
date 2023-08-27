@@ -1,20 +1,12 @@
 import React, { useState } from 'react'
 import clsx from 'clsx';
-import { useSpring, config, animated } from "@react-spring/web";
 import { sidebarItems } from '../data/data';
 import MenuItem from './MenuItem';
 import logo from '../assests/logo.png'
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 import { BiInfoCircle } from 'react-icons/bi';
-const Sidebar = ({ onSetShowSidebar, showSidebar }) => {
-    const { dashOffset, indicatorWidth, precentage } = useSpring({
-        dashOffset: 26.015,
-        indicatorWidth: 70,
-        precentage: 77,
-        from: { dashOffset: 113.113, indicatorWidth: 0, precentage: 0 },
-        config: config.molasses,
-    });
-    const [selected, setSelected] = useState("0");
+const Sidebar = ({ onSetShowSidebar, showSidebar,selected, setSelected }) => {
+    console.log(selected);
     const onClickIcon = () => {
         console.log('hi');
     }

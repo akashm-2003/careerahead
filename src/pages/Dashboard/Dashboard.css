@@ -1,7 +1,7 @@
 .universityContent { 
   display: flex;
   height: 90%;
-  justify-content: center;
+  justify-content: center; 
   align-items: center;
   overflow-x: auto;
   overflow-y: hidden;
@@ -33,6 +33,27 @@
 .height30em {
   height: 30em;
 }
+
+.professorCardHomeInnerContainer{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.professorContainerMainHome{
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  overflow-y: scroll;
+}
+.professorContainerMainHome::-webkit-scrollbar {
+ display: none;
+}
+/* .professorCardHomeContainer{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+} */
+
 .researchCardMainHome {
   display: flex;
   flex-direction: row;
