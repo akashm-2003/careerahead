@@ -8,14 +8,24 @@ import ResearchPaperCardHome from '../../components/ResearchPaperCardHome/Resear
 import CollegeCardSkeleton from '../../components/CollegeCard/CollegeCardSkeleton';
 import ResearchPaperCardHomeSkeleton from '../../components/ResearchPaperCardHome/ResearchPaperCardHomeSkeleton';
 import ProfessorCard from '../../components/ProfessorCard/ProfessorCard';
-import { db } from '../../auth/firebase';
-import { collection } from 'firebase/firestore';
+import ProfessorCardSkeleton from '../../components/ProfessorCard/ProfessorCardSkeleton';
+import { auth, db } from '../../auth/firebase';
+import { collection, getDocs } from 'firebase/firestore';
+import { useEffect,useState } from 'react';
 const Dashboard = ({ onSetShowSidebar, showSidebar, selected, setSelected }) => {
+  const [teacherList,setTeacherList]=useState([])
+  const [teacherLoading,setTeacherLoading]=useState(true)
   const getTeachers=async()=>{
+    setTeacherLoading(true)
     const teachersCollectionRef = collection(db, "Teachers");
-    const data = await teachersCollectionRef.get();
-    console.log(data);
+    const data = await getDocs(teachersCollectionRef);
+    setTeacherList(data.docs.map((doc) => doc.data()))
+    setTeacherLoading(false);
   }
+  console.log(auth.currentUser);
+  useEffect(() => {
+    getTeachers();
+  },[])
   return (
     <>
       <Sidebar showSidebar={showSidebar} onSetShowSidebar={onSetShowSidebar} selected={selected} setSelected={setSelected} />
@@ -69,18 +79,8 @@ const Dashboard = ({ onSetShowSidebar, showSidebar, selected, setSelected }) => 
               <div className="rounded-lg bg-card height30em professorContainerMainHome">
                 <div className="professorCardHomeContainer">
                   <div className="professorCardHomeInnerContainer">
-                    <ProfessorCard />
-                    <ProfessorCard />
-                    <ProfessorCard />
-                    <ProfessorCard />
-                    <ProfessorCard />
-                    <ProfessorCard />
-                    <ProfessorCard />
-                    <ProfessorCard />
-                    <ProfessorCard />
-                    <ProfessorCard />
-                    <ProfessorCard />
-                    <ProfessorCard />
+                    {!teacherLoading?teacherList.map((teacher)=>(<ProfessorCard {...teacher}/>)):
+                    Array.from({length:8},()=> <ProfessorCardSkeleton/>)}
                   </div>
                 </div>
               </div>

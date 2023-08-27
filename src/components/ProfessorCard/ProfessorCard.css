@@ -2,7 +2,6 @@
     grid-column: auto;
     grid-row: 1;
     padding: 0.5em 0.5em;
-    height: 100%;
 }
 .professorCardContent{
     display: flex;

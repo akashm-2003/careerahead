@@ -15,6 +15,7 @@ import SignUp from './pages/SignUp/SignUp';
 import LandingPage from './pages/LandingPage/LandingPage';
 import { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css'
+import Logout from './pages/Logout/Logout';
 function App() {
   const [showSidebar, onSetShowSidebar] = useState(false);
   const [selected, setSelected] = useState("0");
@@ -32,6 +33,7 @@ function App() {
             <Route path="/scholarship" element={<Scholarship />} />
             <Route path="/about" element={<About />} />
             <Route path="/signup" element={<SignUp />} />
+            <Route path="/logout" element={<Logout />} />
             <Route
               path="*"
               element={

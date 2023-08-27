@@ -42,7 +42,7 @@ const Professor = ({ showSidebar, onSetShowSidebar, selected, setSelected }) => 
 
           <div className="collegesDashboardContainer w-full p-2">
             <div className="collegeHeading">
-              <p className='text-base sm:text-lg md:text-xl lg:text-2xl'>Professors in your DJCSI</p>
+              <p className='text-base sm:text-lg md:text-xl lg:text-2xl'>Professors in you searched for</p>
             </div>
 
             <div className="rounded-lg bg-card sm:h-30 h-40">

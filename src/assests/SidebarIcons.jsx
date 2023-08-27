@@ -2,6 +2,7 @@ import React from 'react'
 import {PiStudentBold} from 'react-icons/pi'
 import {GiTakeMyMoney} from 'react-icons/gi'
 import {AiFillInfoCircle} from 'react-icons/ai'
+import {MdLogout} from 'react-icons/md'
 const SidebarIcons = ({id}) => {
     const icons = {
         0: (
@@ -36,8 +37,10 @@ const SidebarIcons = ({id}) => {
         ),
         5: (
           <AiFillInfoCircle size='25px' />
+        ),
+        6:(
+          <MdLogout size='25px' />
         )
-        
       };
       return (
         <svg
