@@ -11,6 +11,8 @@ import About from './pages/About/About';
 import Dashboard from './pages/Dashboard/Dashboard';
 import Scholarship from './pages/Scholarship/Scholarship';
 import Error404Page from './pages/Error404Page/Error404Page';
+import SignUp from './pages/SignUp/SignUp';
+import LandingPage from './pages/LandingPage/LandingPage';
 import { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css'
 function App() {
@@ -29,6 +31,7 @@ function App() {
             <Route path="/summarizer" element={<Summarizer />} />
             <Route path="/scholarship" element={<Scholarship />} />
             <Route path="/about" element={<About />} />
+            <Route path="/signup" element={<SignUp />} />
             <Route
               path="*"
               element={
