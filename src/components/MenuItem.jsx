@@ -4,7 +4,6 @@ import SidebarIcons from '../assests/SidebarIcons';
 import { useNavigate } from 'react-router-dom'
 const MenuItem = ({ item: { id, title, notifications, endpoint }, setSelected, selected }) => {
   const navigate = useNavigate()
-  console.log(id);
   return (
     <div onClick={() => { setSelected(id); navigate(endpoint) }}>
       <div

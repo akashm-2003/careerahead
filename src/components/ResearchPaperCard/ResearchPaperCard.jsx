@@ -6,7 +6,6 @@ const ResearchPaperCard = () => {
         <div class="h-auto  researchPaperCardContainer">
 
             <div class="group lg:w-[200px] lg:h-[280px] w-[160px] [perspective:1000px] h-[220px] researchPaperCardInnerContainer">
-
                 <div class="relative rounded-xl border-2 border-white h-full w-full transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
 
                     <div class="rounded-lg inset-0 flex flex-col h-[70px] lg:h-[90px] items-center justify-center  " style={{ backgroundImage: `url("https://picsum.photos/200/300")`, backgroundSize: "cover" }}>
@@ -37,7 +36,7 @@ const ResearchPaperCard = () => {
                                 Read More ...
                             </button>
                         </div>
-                    </div>
+                    </div> 
                     {/* backface of the card */}
 
                 </div>
