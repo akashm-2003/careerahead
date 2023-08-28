@@ -12,7 +12,7 @@ import LinkedIn from '../../assests/linkedin.png';
 
 const ProfessorCard = ({College,Dept,Name,contact_number,email,image,linkedin,education}) => {
     return (
-        <div className="professorCard lg:max-w-[25em] lg:w-[50vw] w-[21em] ">
+        <div className="professorCard lg:max-w-[25em] lg:w-[50vw] w-[21em]">
             <div className="professorCardContent">
                 <div className="professorCardImage  h-16 md:h-16 mx-2">
                     {image?<img src={image} alt="professor" className="professorImage h-16 w-16 " />:
@@ -26,7 +26,7 @@ const ProfessorCard = ({College,Dept,Name,contact_number,email,image,linkedin,ed
                         <h1 className="ProfessorCardPhoneText">{contact_number}</h1>
                     </div>
                     <div className="professorCardUniversity text-base lg:text-lg">
-                        <h1 className="ProfessorCardUniversityText">{College}</h1>
+                        <h1 className="ProfessorCardUniversityText">{College.includes('Indian Institute of Technology')?College.replace('Indian Institute of Technology','IIT'):College}</h1>
                     </div>
                     <div className="professorCardDomain text-base lg:text-lg">
                         <h1 className="ProfessorCardDomainText">{Dept}</h1>

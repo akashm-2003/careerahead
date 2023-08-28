@@ -12,7 +12,6 @@
     user-select: none;
 }
 .collegeContainer{
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -20,7 +19,16 @@
     height: fit-content;
     background-color:var(--bgCardLight);
     border-radius: 0.5em;
+    padding-top: 0.5em;
+}
+.collegeNameText{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .collegeDetailsContainer{
     flex-direction: column;
+}
+.collegeImageContainer>*{
+    border-radius: 50%;
 }

@@ -10,7 +10,7 @@
     align-items: center;
     width: 100%;
     height: 100%;
-    max-width: 25em;
+    /* max-width: 25em; */
     background-color:var(--bgCardLight);
     border-radius: 0.5em;
     padding: 0 0.5em 0 0;
@@ -56,11 +56,12 @@
     height: 1.5em;
     width: 1.5em;
 }
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 500px){
     .professorCard{
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 100%;
+        min-width:20em;
+        width: 80vw;
     }
 }

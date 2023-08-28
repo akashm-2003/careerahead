@@ -10,21 +10,47 @@ import ResearchPaperCardHomeSkeleton from '../../components/ResearchPaperCardHom
 import ProfessorCard from '../../components/ProfessorCard/ProfessorCard';
 import ProfessorCardSkeleton from '../../components/ProfessorCard/ProfessorCardSkeleton';
 import { auth, db } from '../../auth/firebase';
-import { collection, getDocs } from 'firebase/firestore';
+import {  collection, getDocs, query, where } from 'firebase/firestore';
 import { useEffect,useState } from 'react';
 const Dashboard = ({ onSetShowSidebar, showSidebar, selected, setSelected }) => {
   const [teacherList,setTeacherList]=useState([])
   const [teacherLoading,setTeacherLoading]=useState(true)
+  const teachersCollectionRef = collection(db, "Teachers");
   const getTeachers=async()=>{
     setTeacherLoading(true)
-    const teachersCollectionRef = collection(db, "Teachers");
     const data = await getDocs(teachersCollectionRef);
     setTeacherList(data.docs.map((doc) => doc.data()))
     setTeacherLoading(false);
   }
-  console.log(auth.currentUser);
+    // console.log(auth.currentUser);
+
+  const [collegeList,setCollegeList]=useState([])
+  const [collegeLoading,setCollegeLoading]=useState(true)
+  const collegesCollectionRef = collection(db, "Colleges");
+  const getColleges= async()=>{
+    try{
+      setCollegeLoading(true)
+      const collegeData=query(collegesCollectionRef, where("location", "==", 'India'));
+      const querySnapshot = await getDocs(collegeData)
+      // setCollegeList()
+      const data=[]
+      setCollegeLoading(false);
+      querySnapshot&&querySnapshot.forEach((doc) => {
+        // data.push(doc.data())
+       data.push(doc.data())
+      });
+      setCollegeList(data)
+    }
+    catch(err){
+      console.log(err);
+    }
+  }
   useEffect(() => {
-    getTeachers();
+    const timer = setTimeout(() => {
+      getTeachers();
+      getColleges();
+    }, 1000);
+    return () => clearTimeout(timer);
   },[])
   return (
     <>
@@ -64,8 +90,7 @@ const Dashboard = ({ onSetShowSidebar, showSidebar, selected, setSelected }) => 
             <div className="rounded-lg bg-card sm:h-30 h-30">
               <div className="universityContent">
                 <div className="universityScroll">
-                  <CollegeCard />
-                  <CollegeCardSkeleton />
+                  {!collegeLoading&&collegeList?collegeList.map((college)=>(<CollegeCard {...college}/>)):Array.from({length:15},()=> <CollegeCardSkeleton/>)}
                 </div>
               </div>
             </div>
@@ -93,8 +118,12 @@ const Dashboard = ({ onSetShowSidebar, showSidebar, selected, setSelected }) => 
               <div className="rounded-lg bg-card  researchCardMainHome  height30em">
                 <div className="researchCardContentHome">
                   <div className="researchCardScrollHome">
-                    <ResearchPaperCardHome />
                     <ResearchPaperCardHomeSkeleton />
+                    <ResearchPaperCardHomeSkeleton />
+                    <ResearchPaperCardHomeSkeleton />
+                    <ResearchPaperCardHomeSkeleton />
+                    <ResearchPaperCardHomeSkeleton />
+                    <ResearchPaperCardHome />
                   </div>
                 </div>
               </div>
