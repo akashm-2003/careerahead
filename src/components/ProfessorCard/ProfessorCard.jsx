@@ -10,7 +10,9 @@ import AltImg from '../../assests/profile1.png';
 import Gmail from '../../assests/gmail.png';
 import LinkedIn from '../../assests/linkedin.png';
 
-const ProfessorCard = ({College,Dept,Name,contact_number,email,image,linkedin,education}) => {
+const ProfessorCard = ({teacher,domain}) => {
+ 
+    const {College,Dept,Name,contact_number,email,image,linkedin,education}=teacher
     return (
         <div className="professorCard lg:max-w-[25em] lg:w-[50vw] w-[21em]">
             <div className="professorCardContent">
@@ -20,7 +22,7 @@ const ProfessorCard = ({College,Dept,Name,contact_number,email,image,linkedin,ed
                 </div>
                 <div className="professorCardDetails ">
                     <div className="professorCardName text-xl">
-                        <h1 className="ProfessorCardNameText">{Name}</h1>
+                        <h1 className="ProfessorCardNameText">{Name} ({domain})</h1>
                     </div>
                     <div className="professorCardPhone text-base lg:text-lg">
                         <h1 className="ProfessorCardPhoneText">{contact_number}</h1>
@@ -31,9 +33,9 @@ const ProfessorCard = ({College,Dept,Name,contact_number,email,image,linkedin,ed
                     <div className="professorCardDomain text-base lg:text-lg">
                         <h1 className="ProfessorCardDomainText">{Dept}</h1>
                     </div>
-                    {/* <div className="professorCardAbout text-sm lg:text-base">
+                    <div className="professorCardAbout text-sm lg:text-base">
                         <h1 className="ProfessorCardAboutText">{education.slice(0,20)}</h1>
-                    </div> */}
+                    </div>
                 </div>
                 <div className="professorIcons">
                     <div className="professorEmail socialIconsDiv">

@@ -104,7 +104,7 @@ const Dashboard = ({ onSetShowSidebar, showSidebar, selected, setSelected }) => 
               <div className="rounded-lg bg-card height30em professorContainerMainHome">
                 <div className="professorCardHomeContainer">
                   <div className="professorCardHomeInnerContainer">
-                    {!teacherLoading?teacherList.map((teacher)=>(<ProfessorCard {...teacher}/>)):
+                    {!teacherLoading?teacherList.map((teacher)=>(<ProfessorCard teacher={teacher} domain={teacher.details} />)):
                     Array.from({length:8},()=> <ProfessorCardSkeleton/>)}
                   </div>
                 </div>

@@ -69,7 +69,7 @@ console.log(teachers);
               <div className="professorContent">
                 <div className="professorScroll">
                   {!teachersLoading&&teachers['AI']?teachers['AI'].map((teacher)=>(
-                    <ProfessorCard key={teacher.id} {...teacher} />
+                    <ProfessorCard key={teacher.id} teacher={teacher} domain={teacher.details}/>
                   )):Array.from({length:5},()=> <ProfessorCardSkeleton/>)}
                 </div>
               </div>
@@ -87,7 +87,8 @@ console.log(teachers);
               <div className="professorContent">
                 <div className="professorScroll">
                   {!teachersLoading&&teachers['ML']?teachers['ML'].map((teacher)=>(
-                    <ProfessorCard key={teacher.id} {...teacher} />
+                    console.log(teacher),
+                    <ProfessorCard key={teacher.id} teacher={teacher} domain={teacher.details}/>
                   )):Array.from({length:5},()=> <ProfessorCardSkeleton/>)}
                 </div>
               </div>
@@ -105,7 +106,7 @@ console.log(teachers);
               <div className="professorContent">
                 <div className="professorScroll">
                   {!teachersLoading&&teachers['NLP']?teachers['NLP'].map((teacher)=>(
-                    <ProfessorCard key={teacher.id} {...teacher} />
+                    <ProfessorCard key={teacher.id} teacher={teacher} domain={teacher.details}/>
                   )):Array.from({length:5},()=> <ProfessorCardSkeleton/>)}
                 </div>
               </div>
@@ -124,7 +125,7 @@ console.log(teachers);
               <div className="professorContent">
                 <div className="professorScroll">
                   {!teachersLoading&&teachers['DB']?teachers['DB'].map((teacher)=>(
-                    <ProfessorCard key={teacher.id} {...teacher} />
+                    <ProfessorCard key={teacher.id} teacher={teacher} domain={teacher.details}/>
                   )):Array.from({length:5},()=> <ProfessorCardSkeleton/>)}
                 </div>
               </div>
