@@ -1,6 +1,6 @@
-import { RiArrowDropRightFill, RiMenu3Fill } from "react-icons/ri"
-import { AiOutlineSearch} from "react-icons/ai"
-import { auth } from "../auth/firebase"
+import { RiArrowDropRightFill, RiMenu3Fill } from "react-icons/ri";
+import { AiOutlineSearch } from "react-icons/ai";
+import { auth } from "../auth/firebase";
 const SearchBar = ({ onSetShowSidebar }) => {
   const user = auth.currentUser;
 
@@ -9,14 +9,20 @@ const SearchBar = ({ onSetShowSidebar }) => {
       <div className="sm:flex-grow flex justify-between">
         <div className="">
           <div className="flex items-center">
-            <div className="text-3xl font-bold text-white">{user?.displayName}</div>
+            <div className="text-3xl font-bold">{user?.displayName}</div>
           </div>
           <div className="flex items-center">
-            <RiArrowDropRightFill size='25px'/>
+            <RiArrowDropRightFill size="25px" />
             <div className="ml-2">October 26</div>
           </div>
         </div>
-        <button onClick={()=>{onSetShowSidebar(true)}} type="button" className='block sm:hidden'>
+        <button
+          onClick={() => {
+            onSetShowSidebar(true);
+          }}
+          type="button"
+          className="block sm:hidden"
+        >
           <RiMenu3Fill className="w-5 h-5" />
         </button>
       </div>
@@ -33,7 +39,7 @@ const SearchBar = ({ onSetShowSidebar }) => {
         </form>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SearchBar
+export default SearchBar;

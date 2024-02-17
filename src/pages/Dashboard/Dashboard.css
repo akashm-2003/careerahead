@@ -1,7 +1,13 @@
-.universityContent { 
+body {
+  color: var(--unHighlightedText);
+}
+.highlightedText {
+  color: var(--highlightedText);
+}
+.universityContent {
   display: flex;
   height: 90%;
-  justify-content: center; 
+  justify-content: center;
   align-items: center;
   overflow-x: auto;
   overflow-y: hidden;
@@ -34,19 +40,19 @@
   height: 30em;
 }
 
-.professorCardHomeInnerContainer{
+.professorCardHomeInnerContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
-.professorContainerMainHome{
+.professorContainerMainHome {
   display: flex;
   align-items: flex-start;
   justify-content: center;
   overflow-y: scroll;
 }
 .professorContainerMainHome::-webkit-scrollbar {
- display: none;
+  display: none;
 }
 /* .professorCardHomeContainer{
   display: flex;
@@ -65,7 +71,7 @@
   overflow-y: scroll;
 }
 .researchCardMainHome::-webkit-scrollbar {
- display: none;
+  display: none;
 }
 .researchCardContentHome {
   display: flex;
@@ -83,4 +89,7 @@
   overflow-y: auto;
   overflow-x: hidden;
   width: 100%;
+}
+.collegeHeading {
+  color: var(--heading);
 }

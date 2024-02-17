@@ -4,15 +4,15 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 *::-webkit-scrollbar {
-    width: 5px;
-    height: 0.4em;
+  width: 5px;
+  height: 0.4em;
 }
 *::-webkit-scrollbar-track {
   background: black;
@@ -21,103 +21,100 @@ body {
   background: #888;
 }
 
-@media (max-width: 1025px){
+@media (max-width: 1025px) {
   *::-webkit-scrollbar {
     display: none;
+  }
 }
-}
-/* Constants */ 
+/* Constants */
 
 /* To use  */
 /*  color: var(--custom-color); */
 :root {
+  --heading: #37b5b6;
+  --highlightedText: #492e87;
+  --unHighlightedText: #0a1d56;
 
-    --heading: rgb(24 24 29);
-    --unHighlightedText: #676767;
-    --highlightedText: #fff;
+  --bgIcon: #2d2d2d;
+  --bgCardLight: rgba(0, 0, 0, 0.1);
+  --bgCardDark: #1d1d1d;
 
-    --bgColor: #1e1e1e;
-    --bgCard: #171717;
-    --bgIcon: #2d2d2d;
-    --bgCardLight:#252525;
-    --bgCardDark:#1d1d1d;
+  --hoverItem: #a1a0a0;
+  --selectedItem: #fff;
 
-    --hoverItem: #a1a0a0;
-    --selectedItem: #fff;
+  --white: #fff;
+  --black: #000;
+  --hr: #2e2e2e;
 
-    --white: #fff;
-    --black:  #000;
-    --hr: #2e2e2e;
-
-
-    --mobile: "768px";
-    --tab: "998px";
+  --mobile: "768px";
+  --tab: "998px";
 }
- 
 
 /* ShortHand for styling for dashboard */
 @layer components {
   .main-container {
     @apply h-screen flex-grow overflow-x-hidden overflow-auto flex flex-wrap content-start p-2;
   }
-  .smallerDevice-container{
+  .smallerDevice-container {
     @apply w-full h-screen hidden sm:block sm:w-20 xl:w-60 flex-shrink-0;
   }
 }
-body{
-  color:#676767;
-  background-color: #1e1e1e;
+body {
+  background-color: #ffffff;
 }
-.higlihted-text{
-  color: #fff;
+.higlihted-text {
+  color: rgb(123, 128, 154);
 }
-.bg-card{
-  background-color:#171717;
+.bg-card {
+  background-color: rgba(0, 0, 0, 0.01);
 }
-.bg-sidebar-card-top{
-  background-color: #353535;
+.bg-sidebar-card-top {
+  background-color: rgba(0, 0, 0, 0.05);
 }
-.sidebar-separator-top{
-  border-bottom: 1px solid #2e2e2e;
+.sidebar-separator-top {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
-.sidebar-separator-bottom{
-  border-top: 1px solid #2e2e2e;
+.sidebar-separator-bottom {
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
 }
-.icon-background{
-  background: #2d2d2d;
-}
-
-.tooltip-head{
-background: #1d1d1d;
-} 
-.tooltip-body{
-  background:#252525 ;
+.icon-background {
+  background: red;
 }
 
-.search-icon{
+.tooltip-head {
+  background: #37b5b6;
+}
+.tooltip-body {
+  background: #fff;
+}
+
+.search-icon {
   top: 50%;
   transform: translate(0, -50%);
 }
 
-.card-stack-border{
-  border-bottom: 2px solid #696969;
+.card-stack-border {
+  border-bottom: 2px solid #37b5b6;
 }
-.bg-details{
-  background-color: #1e1e1e;
+.bg-details {
+  background-color: #37b5b6;
 }
 
-.add-component-head{
-  background-color: #181818;
+.add-component-head {
+  background-color: #fff;
   background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
 }
 
-.sidebar-item-selected{
-  color: white;
+.sidebar-item-selected {
+  color: #37b5b6;
   border-right: 2px solid white;
 }
-.sidebar-item{
+.sidebar-item {
   border-right: 2px solid transparent;
 }
 .sidebar-item:hover {
- color:#a1a0a0;
+  color: #a1a0a0;
+}
+.sidebar-blur-mobile {
+  backdrop-filter: blur(1000px);
 }

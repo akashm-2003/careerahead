@@ -15,8 +15,8 @@ const ResearchPaperCard = () => {
                     </div>
 
                     <div className='flex flex-col items-center justify-center mt-5 lg:mt-8'>
-                        <h1 className=' text-lg lg:text-2xl'>Rohit Master</h1>
-                        <h5 className='text-sm lg:text-base'>App Developer</h5>
+                        <h1 className=' text-lg lg:text-2xl'>Akash Manna</h1>
+                        <h5 className='text-sm lg:text-base'>Web Developer</h5>
 
                         <h4 className='text-center text-[12px] lg:text-sm px-4 mt-1'>Research Paper Topic for the intended professor</h4>
 

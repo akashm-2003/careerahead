@@ -32,3 +32,6 @@
 .collegeImageContainer>*{
     border-radius: 50%;
 }
+.highlightedText {
+  color: var(--highlightedText);
+}
