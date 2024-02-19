@@ -88,11 +88,9 @@ body {
   background: #fff;
 }
 
-.search-icon {
-  top: 50%;
-  transform: translate(0, -50%);
+.search-bar {
+  background-color: #f5f5f5;
 }
-
 .card-stack-border {
   border-bottom: 2px solid #37b5b6;
 }

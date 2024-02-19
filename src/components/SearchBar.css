@@ -1,0 +1,29 @@
+.dropdownSearch {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 100%;
+  top: 2.8rem;
+  z-index: 100;
+  border-radius: 0.5em;
+}
+.dropdownSearch:empty {
+  border: none;
+}
+
+.dropdownSearch-row {
+  cursor: pointer;
+  text-align: start;
+  margin: 2px 0;
+}
+.search-icon {
+  top: 10px;
+}
+.searchEachItem {
+  padding: 0.5em;
+  border-bottom: 1px solid #ece9e9;
+}
+.lowerTextuserData {
+  vertical-align: text-bottom;
+}
