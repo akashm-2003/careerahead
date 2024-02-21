@@ -79,6 +79,11 @@ const SearchBar = ({ onSetShowSidebar }) => {
             onChange={(e) => {
               setSearchValue(e.target.value);
             }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                search(searchValue);
+              }
+            }}
           />
           <AiOutlineSearch
             className="w-5 h-5 search-icon left-3 top-0 absolute"
@@ -107,7 +112,7 @@ const SearchBar = ({ onSetShowSidebar }) => {
                   key={item.name}
                   className="flex items-center justify-between p-2 searchEachItem"
                   onClick={() => {
-                   search(item.name)
+                    search(item.name);
                   }}
                 >
                   <div className="userData flex flex-row items-baseline">
