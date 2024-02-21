@@ -1,63 +1,64 @@
-import React from 'react';
+import React from "react";
 import { useState, useEffect } from "react";
-import './LandingIntro.css';
-import { motion } from 'framer-motion';
-import { textVariant } from '../../utils/motion';
-import SectionWrapper from '../../utils/SectionWrapper';
+import "./LandingIntro.css";
+import { motion } from "framer-motion";
+import { textVariant } from "../../utils/motion";
+import SectionWrapper from "../../utils/SectionWrapper";
 
 const LandingIntro = () => {
-    const [loopNum, setLoopNum] = useState(0);
-    const [isDeleting, setIsDeleting] = useState(false);
-    const [text, setText] = useState("");
-    const [delta, setDelta] = useState(300 - Math.random() * 100);
-    const [index, setIndex] = useState(1);
-    const toRotate = ["Research", "Summarize", "Comprehend"];
-    const period = 500;
+  const [loopNum, setLoopNum] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [text, setText] = useState("");
+  const [delta, setDelta] = useState(300 - Math.random() * 100);
+  const [index, setIndex] = useState(1);
+  const toRotate = ["Research", "Summarize", "Comprehend"];
+  const period = 500;
 
-    useEffect(() => {
-      let ticker = setInterval(() => {
-        tick();
-      }, delta);
+  useEffect(() => {
+    let ticker = setInterval(() => {
+      tick();
+    }, delta);
 
-      return () => {
-        clearInterval(ticker);
-      };
-    }, [text]);
-
-    const tick = () => {
-      let i = loopNum % toRotate.length;
-      let fullText = toRotate[i];
-      let updatedText = isDeleting
-        ? fullText.substring(0, text.length - 1)
-        : fullText.substring(0, text.length + 1);
-
-      setText(updatedText);
-
-      if (isDeleting) {
-        setDelta((prevDelta) => prevDelta / 2);
-      }
-
-      if (!isDeleting && updatedText === fullText) {
-        setIsDeleting(true);
-        setIndex((prevIndex) => prevIndex - 1);
-        setDelta(period);
-      } else if (isDeleting && updatedText === "") {
-        setIsDeleting(false);
-        setLoopNum(loopNum + 1);
-        setIndex(1);
-        setDelta(250);
-      } else {
-        setIndex((prevIndex) => prevIndex + 1);
-      }
+    return () => {
+      clearInterval(ticker);
     };
+  }, [text]);
+
+  const tick = () => {
+    let i = loopNum % toRotate.length;
+    let fullText = toRotate[i];
+    let updatedText = isDeleting
+      ? fullText.substring(0, text.length - 1)
+      : fullText.substring(0, text.length + 1);
+
+    setText(updatedText);
+
+    if (isDeleting) {
+      setDelta((prevDelta) => prevDelta / 2);
+    }
+
+    if (!isDeleting && updatedText === fullText) {
+      setIsDeleting(true);
+      setIndex((prevIndex) => prevIndex - 1);
+      setDelta(period);
+    } else if (isDeleting && updatedText === "") {
+      setIsDeleting(false);
+      setLoopNum(loopNum + 1);
+      setIndex(1);
+      setDelta(250);
+    } else {
+      setIndex((prevIndex) => prevIndex + 1);
+    }
+  };
   return (
-    <div className='landing-intro-background flex items-center justify-center flex-col w-full h-full'>
+    <div className="flex items-center justify-center flex-col w-full h-full">
       <motion.p
         variants={textVariant()}
-        animate='show'
-        initial='hidden'
-        className=" flex text-md text-white mt-2 mb-4 p-4"
-      >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi sunt
+        animate="show"
+        initial="hidden"
+        className=" flex text-md text-black text-lg mt-2 mb-4 p-4"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi sunt
         pariatur optio accusantium dolor. Distinctio labore tenetur id illum
         veniam.
       </motion.p>
@@ -66,10 +67,30 @@ const LandingIntro = () => {
         dataPeriod="1000"
         data-rotate='[ "Research", "Summarize", "Comprehend" ]'
       >
-        <span className="landing-intro-wrap text-[#fff] font-bold">{text}</span>
+        <span className="landing-intro-wrap text-black text-3xl font-bold">
+          {text}
+        </span>
       </span>
     </div>
+
+    // <div className='home no-padding-bottom'>
+    //  <div className='welcome '><div className='we'> Welcome to  <span>Research Bot </span></div>
+    //  <div className='home-title d-flex align-items-center'>
+    // Get &nbsp;
+    // <div className='landing-intro-background flex items-center justify-center flex-col w-full h-full'>
+    //   <span
+    //     className="txt-rotate"
+    //     dataperiod="1000"
+    //     data-rotate='[ "Summarization", "Future Scope", "Limitation","Chat Help" ]'
+    //   >
+    //    <span className="landing-intro-wrap text-[#fff] font-bold">{text}</span>
+    //   </span>
+    // </div>
+    // &nbsp; of your Research Paper
+    //     </div>
+    //   </div>
+    // </div>
   );
-}
+};
 
 export default LandingIntro;

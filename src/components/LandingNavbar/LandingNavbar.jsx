@@ -1,17 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { AiOutlineCloseCircle } from 'react-icons/ai';
+import { AiOutlineCloseCircle } from "react-icons/ai";
 import { AiOutlineMenu } from "react-icons/ai";
 import { useState } from "react";
-
+import { menuVariants } from "../../utils/motion";
 
 const LandingNavbar = () => {
-    const [openMenu, setOpenMenu] = useState(false);
+  const [openMenu, setOpenMenu] = useState(false);
 
-    const variants = {
-      open: { opacity: 1, x: 0 },
-      closed: { opacity: 1, x: "-100%" },
-    };
   return (
     <motion.button
       onClick={() => setOpenMenu(!openMenu)}
@@ -22,20 +18,38 @@ const LandingNavbar = () => {
         right: 5,
         bottom: 5,
       }}
-          dragElastic
-          className="absolute right-5 top-5 z-20"
+      dragElastic
+      className="absolute right-5 top-5 z-20"
     >
       {openMenu ? (
         <>
-          <AiOutlineCloseCircle size={25} color="red" className=" rounded-full absolute right-0"/>
-          <div className="bg-[#171717] rounded-md p-2 m-5 flex flex-col items-start">
-            <p className="flex hover:text-white">Login</p>
-            <p className="flex hover:text-white">Sign Up</p>
+          <motion.div
+            initial={false}
+            animate={openMenu ? "open" : "closed"}
+            variants={menuVariants}
+            transition={{ type: "spring", stiffness: 260, damping: 20 }}
+          >
+            <AiOutlineCloseCircle
+              size={25}
+              color="red"
+              className=" rounded-full absolute right-0"
+            />
+          </motion.div>
+          <div className="bg-[#ffffff] rounded-md p-2 m-5 flex flex-col items-start">
+            <p className="flex hover:text-black p-1">Login</p>
+            <p className="flex hover:text-black p-1">Sign Up</p>
           </div>
         </>
       ) : (
         <>
-          <AiOutlineMenu size={25} color="blue" className=" rounded-full" />
+          <motion.div
+            initial={false}
+            animate={openMenu ? "open" : "closed"}
+            variants={menuVariants}
+            transition={{ type: "spring", stiffness: 260, damping: 20 }}
+          >
+            <AiOutlineMenu size={25} color="blue" className=" rounded-full" />
+          </motion.div>
         </>
       )}
     </motion.button>
@@ -43,3 +57,4 @@ const LandingNavbar = () => {
 };
 
 export default LandingNavbar;
+

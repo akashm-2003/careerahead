@@ -1,11 +1,23 @@
 .green-pink-gradient {
-  background: "#00cea8";
-  background: linear-gradient(90.13deg, #00cea8 1.9%, #bf61ff 97.5%);
-  background: -webkit-linear-gradient(-90.13deg, #00cea8 1.9%, #bf61ff 97.5%);
+  /* background: "#00cea8"; */
+  background: linear-gradient(
+    90.13deg,
+    #5dc3c4,
+    #503986 97.5%,
+    #182857 1.9% /* rgb(230, 76, 230) */
+  );
+  background: -webkit-linear-gradient(
+    -90.13deg,
+    #5dc3c4,
+    #503986 97.5%,
+    #182857 1.9% /* rgb(230, 76, 230) */
+  );
+  /* background: linear-gradient(90.13deg, #00cea8 1.9%, #bf61ff 97.5%); */
+  /* background: -webkit-linear-gradient(-90.13deg, #00cea8 1.9%, #bf61ff 97.5%); */
 }
 
 .glassy-card {
-  background-color: rgba(0, 0, 0, 0.777); /* Semi-transparent black */
+  background-color: rgba(255, 255, 255, 0.438); /* Semi-transparent black */
   backdrop-filter: blur(10px); /* Blur effect */
   border-radius: 10px;
   padding: 20px;

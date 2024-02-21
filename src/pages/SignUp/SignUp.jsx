@@ -1,49 +1,49 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import LinkedIn from "../../assests/linkedin.png";
-import './SignUp.css';
+import "./SignUp.css";
 import { auth, googleProvider } from "../../auth/firebase";
 import {
   createUserWithEmailAndPassword,
-  signInWithPopup,updateProfile 
+  signInWithPopup,
+  updateProfile,
 } from "firebase/auth";
-import { Firestore, collection } from '@firebase/firestore';
-import { useNavigate } from 'react-router';
-import { NavLink } from 'react-router-dom';
+import { Firestore, collection } from "@firebase/firestore";
+import { useNavigate } from "react-router";
+import { NavLink } from "react-router-dom";
 const SignUp = () => {
-  const [name, setName] = useState("")
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const signUpUser = async (e) => {
     e.preventDefault();
     if (!name || !email || !password) {
-      alert("Please fill all the details")
-      return
-    }
-    else (
-      await signIn()
-    )
-  }
+      alert("Please fill all the details");
+      return;
+    } else await signIn();
+  };
   const signIn = async () => {
     // const addUserData = async (auth, email, name) => {
     //   console.log(name);
     //   updateProfile(auth.currentUser,{email:email,displayName:name})
     // }
     try {
-      await createUserWithEmailAndPassword(auth, email, password)
-        .then(async(value) => { await updateProfile(value.user,{displayName:name})});
-      navigate("/")
+      await createUserWithEmailAndPassword(auth, email, password).then(
+        async (value) => {
+          await updateProfile(value.user, { displayName: name });
+        }
+      );
+      navigate("/");
     } catch (err) {
       console.error(err);
     }
   };
 
-
   const signInWithGoogle = async () => {
     try {
       await signInWithPopup(auth, googleProvider);
-      navigate("/")
+      navigate("/");
     } catch (err) {
       console.error(err);
     }
@@ -55,18 +55,23 @@ const SignUp = () => {
   return (
     <div className="flex justify-center bg-gradient-signup items-center h-screen ">
       <div className="flex signup-page-background rounded-lg p-4 bg-shadow-signup flex-col signup-page">
-        <h1 className="flex font-bold text-lg text-white items-center justify-center">
+        <h1 className="flex font-bold text-lg unhighlightedText items-center justify-center">
           Masters Way
         </h1>
         <hr className="mt-2 mb-2" />
-        <h1 className="text-lg mt-2 text-white">Create a Masters Way ID</h1>
-        <h2 className="text-sm text-[#676767]">
+        <h1 className="text-lg mt-2 text-[#0a1d56f5]">
+          Create a Masters Way ID
+        </h1>
+        <h2 className="text-sm text-[#0a1d56f5]">
           One step before starting your research
         </h2>
         <div className="mt-4">
           <form>
             <div className="flex flex-col p-1">
-              <label htmlFor="username" className="mt-2 mb-1 text-xl text-white">
+              <label
+                htmlFor="username"
+                className="mt-2 mb-1 text-xl text-[#0a1d56f5]"
+              >
                 Name
               </label>
               <input
@@ -74,11 +79,14 @@ const SignUp = () => {
                 type="text"
                 name="username"
                 id="username"
-                className="rounded-md  text-lg border h-[2.5em] border-gray-400 bg-[#1e1e1e] input-clicked-login"
+                className="rounded-md  text-lg border h-[2.5em] border-gray-400 binput-color input-clicked-login"
               />
             </div>
             <div className="flex flex-col p-1 mb-3">
-              <label htmlFor="email" className="mt-2 mb-1 text-xl text-white">
+              <label
+                htmlFor="email"
+                className="mt-2 mb-1 text-xl text-[#0a1d56f5]"
+              >
                 Email
               </label>
               <input
@@ -86,12 +94,15 @@ const SignUp = () => {
                 type="email"
                 name="email"
                 id="email"
-                className="rounded-md  text-lg border h-[2.5em] border-gray-400 input-clicked-signup bg-[#1e1e1e] "
-              // className="rounded-md text-lg border hover:border-b-2 bg-[#1e1e1e]"
+                className="rounded-md  text-lg border h-[2.5em] border-gray-400 input-clicked-signup input-color "
+                // className="rounded-md text-lg border hover:border-b-2 bg-[#1e1e1e]"
               />
             </div>
             <div className="flex flex-col p-1 mb-3">
-              <label htmlFor="password" className="mt-2 mb-1 text-xl text-white">
+              <label
+                htmlFor="password"
+                className="mt-2 mb-1 text-xl text-[#0a1d56f5]"
+              >
                 Password
               </label>
               <input
@@ -99,12 +110,16 @@ const SignUp = () => {
                 type="password"
                 name="password"
                 id="password"
-                className="rounded-md  text-lg border h-[2.5em] border-gray-400 input-clicked-login bg-[#1e1e1e] "
-              // className="rounded-md text-lg border hover:border-b-2 bg-[#1e1e1e]"
+                className="rounded-md  text-lg border h-[2.5em] border-gray-400 input-clicked-login input-color "
+                // className="rounded-md text-lg border hover:border-b-2 bg-[#1e1e1e]"
               />
             </div>
-            <button type="submit" onClick={signUpUser} className="border items-center justify-center rounded-lg p-2 flex mt-3 mb-2 w-full hover:bg-gray-800">
-              <p className="flex text-white">Create your account</p>
+            <button
+              type="submit"
+              onClick={signUpUser}
+              className="border items-center justify-center rounded-lg p-2 flex mt-3 mb-2 w-full hover:bg-gray-200"
+            >
+              <p className="flex text-[#0a1d56f5]">Create your account</p>
             </button>
           </form>
           <div className="flex items-center">
@@ -118,12 +133,15 @@ const SignUp = () => {
             <hr />
           </p> */}
           <div className="flex flex-col">
-            <button onClick={signInWithGoogle} className="border items-center justify-center rounded-lg p-2 flex mt-3 mb-2 w-full hover:bg-gray-800">
-              <p className="flex text-white">Continue with Google</p>
+            <button
+              onClick={signInWithGoogle}
+              className="border items-center justify-center rounded-lg p-2 flex mt-3 mb-2 w-full hover:bg-gray-200"
+            >
+              <p className="flex text-[#0a1d56f5]">Continue with Google</p>
               <FcGoogle size={20} className="mt-1 ml-3" />
             </button>
-            <button className="border rounded-lg p-2 flex mb-2 w-full hover:bg-gray-800 items-center justify-center">
-              <p className="flex text-white">Continue with LinkedIn</p>
+            <button className="border rounded-lg p-2 flex mb-2 w-full hover:bg-gray-200 items-center justify-center">
+              <p className="flex text-[#0a1d56f5]">Continue with LinkedIn</p>
               <img
                 src={LinkedIn}
                 alt="Linkedin"
@@ -133,12 +151,16 @@ const SignUp = () => {
           </div>
           <div className="flex mt-2">
             <p className="text-sm mr-1">Already have an Account ?</p>
-            <NavLink to='/login'><p className="text-blue-500 hover:underline text-sm">Login here</p></NavLink>
+            <NavLink to="/login">
+              <p className="text-blue-500 hover:underline text-sm">
+                Login here
+              </p>
+            </NavLink>
           </div>
         </div>
       </div>
-    </div >
+    </div>
   );
-}
+};
 
-export default SignUp
+export default SignUp;

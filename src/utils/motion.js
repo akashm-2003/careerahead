@@ -17,6 +17,11 @@ export const paginationVariants = () => {
   };
 };
 
+export const menuVariants = {
+    open: { opacity: 1, x: 0 },
+    closed: { opacity: 1, x: "-100%" },
+  };
+
 export const textVariant = (delay) => {
   return {
     hidden: {
