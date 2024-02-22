@@ -27,7 +27,7 @@ const ResearchPaperCardSkeleton = () => {
                     </div>
 
                     {/* backface of the card */}
-                    <div class="absolute inset-0 rounded-xl bg-black/95 px-3 py-2 text-center [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                    <div class="absolute inset-0 rounded-xlx px-3 py-2 text-center [transform:rotateY(180deg)] [backface-visibility:hidden]">
 
                         <div class="flex min-h-full flex-col items-center justify-around">
 
