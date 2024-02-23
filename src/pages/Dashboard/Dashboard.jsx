@@ -13,6 +13,8 @@ import {
   fetchPublications,
   getProfessorsByCollege,
   listOfColleges,
+  getOnePublication,
+  getOneProfessor,
 } from "../../data/ProfessorByCollege";
 import "./Dashboard.css";
 const Dashboard = ({

@@ -73,7 +73,7 @@ const ResearchPaperCard = () => {
 
               {/* link mapping to be done here */}
 
-              <button className="rounded-md py-1 px-2 text-sm">
+              <button className="rounded-md py-1 px-2 text-sm" >
                 Read More ...
               </button>
             </div>

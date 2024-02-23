@@ -1,4 +1,12 @@
-import { collection, getDocs, limit, query } from "firebase/firestore";
+import {
+  collection,
+  getDocs,
+  limit,
+  query,
+  getDoc,
+  doc,
+  where,
+} from "firebase/firestore";
 import { db } from "../auth/firebase";
 
 const listOfColleges = [
@@ -37,6 +45,7 @@ const fetchPublications = async (colleges, countOfProfessor, countOfPaper) => {
         );
 
         publicationsQuerySnapshot.forEach((pubDoc) => {
+          // console.log(pubDoc);
           publicationsData.push({
             ...pubDoc.data(),
             college: college, // Adding the college name to the publication data
@@ -51,4 +60,29 @@ const fetchPublications = async (colleges, countOfProfessor, countOfPaper) => {
   return publicationsData;
 };
 
-export { getProfessorsByCollege, listOfColleges, fetchPublications };
+const getOnePublication = async (
+  ProfessorId = "14JlaZsAAAAJ",
+  PublicationId = "0bimXTCmMdzuYbx8MilD",
+  college = "IIT Bombay"
+) => {
+  const publication = {};
+  try {
+    const professorRef = doc(db, college, ProfessorId);
+    const publicationsRef = collection(professorRef, "Publications");
+    const publicationSnapShot = await getDoc(
+      doc(publicationsRef, PublicationId)
+    );
+    if (!publicationSnapShot.exists()) return publication;
+    publication.data = publicationSnapShot.data();
+    return publication.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export {
+  getProfessorsByCollege,
+  listOfColleges,
+  fetchPublications,
+  getOnePublication,
+};
