@@ -1,35 +1,36 @@
-.researchPaperContainerUsedHome{
-    grid-column: 1;
-    grid-row: auto;
-    padding: 0.5em 0.5em;
-    height: 100%;
-    height: fit-content;
-} 
-.researchPaperContentUsedHome{   
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    max-width: 25em;
-    background-color:var(--bgCardLight);
-    border-radius: 0.5em;
+.researchPaperContainerUsedHome {
+  grid-column: 1;
+  grid-row: auto;
+  padding: 0.5em 0.5em;
+  height: 100%;
+  height: fit-content;
 }
-.researchCardImageHome{
-    min-width: 5em;
-    width: 20%;
-    height: 5em;
-    border-radius: 50%;
-    margin: 0 0.5em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.researchPaperContentUsedHome {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 25em;
+  background-color: var(--bgCardLight);
+  border-radius: 0.5em;
 }
-.researchCardNameHome{
-    padding: 0.25em 0.25em 0.25em 0;
-    text-align:left;
-    color: var(--highlightedText);
+.researchCardImageHome {
+  min-width: 5em;
+  width: 20%;
+  height: 5em;
+  border-radius: 50%;
+  margin: 0 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.researchCardDetailsHome{
-    width: 100%;
+.researchCardNameHome {
+  padding: 0.25em 0.25em 0.25em 0;
+  text-align: left;
+  color: var(--highlightedText);
+  line-height: 1.4rem;
+}
+.researchCardDetailsHome {
+  width: 100%;
 }

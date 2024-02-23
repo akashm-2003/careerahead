@@ -13,7 +13,7 @@ body {
   overflow-y: hidden;
 }
 .universityContent::-webkit-scrollbar {
-  height: 0.4em;
+  height: 0em;
 }
 .universityScroll {
   display: grid;

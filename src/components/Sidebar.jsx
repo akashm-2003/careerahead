@@ -11,7 +11,6 @@ const Sidebar = ({ onSetShowSidebar, showSidebar, selected, setSelected }) => {
   const user = auth.currentUser;
   // console.log(user?.photoURL);
   const image = user?.photoURL;
-  console.log(image);
   return (
     <div
       className={clsx(
