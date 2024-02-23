@@ -1,0 +1,63 @@
+.title {
+  color: var(--heading);
+}
+
+.abstract-heading {
+  color: var(--heading);
+}
+
+.rec-pub {
+  color: var(--heading);
+}
+
+.image {
+  height: 20rem;
+}
+
+@media (max-width: 1024px) {
+  .research-Scroll {
+    width: 100%;
+    column-gap: 0;
+    display: flex;
+    flex-direction: row;
+  }
+  .research-Content {
+    display: flex;
+    height: 100%;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    overflow-x: auto;
+    overflow-y: scroll;
+  }
+  .researchContent::-webkit-scrollbar {
+    height: 0em;
+  }
+}
+
+.research-Scroll {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.btn:hover {
+  background-color: #41ebeb;
+  color: #000000;
+  box-shadow: inherit;
+  border: 1px solid var(--primary);
+}
+
+.btn:active {
+  background-color: #73d2d2;
+  color: #000000;
+  border: 1px solid var(--primary);
+}
+/* .research-Content {
+  display: flex;
+  /* flex-direction: column; */
+/* justify-content: center; */
+/* align-items: center; */
+/* overflow-x: auto; */
+/* overflow-y: hidden; */
+/* } */
