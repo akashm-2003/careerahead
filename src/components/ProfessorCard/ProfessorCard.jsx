@@ -10,10 +10,11 @@ import "./ProfessorCard.css";
 import AltImg from "../../assests/profile1.png";
 import Gmail from "../../assests/gmail.png";
 import LinkedIn from "../../assests/linkedin.png";
-
+import { useNavigate } from "react-router-dom";
 const ProfessorCard = ({ teacher }) => {
+  const navigate = useNavigate();
   const {
-    affiliation,
+    college_name,
     contact_details,
     interests,
     professor_name,
@@ -52,9 +53,9 @@ const ProfessorCard = ({ teacher }) => {
           </div>
           <div className="professorCardUniversity text-base lg:text-lg">
             <h1 className="ProfessorCardUniversityText">
-              {affiliation.includes("Indian Institute of Technology")
-                ? affiliation.replace("Indian Institute of Technology", "IIT")
-                : affiliation}
+              {college_name.includes("Indian Institute of Technology")
+                ? college_name.replace("Indian Institute of Technology", "IIT")
+                : college_name}
             </h1>
           </div>
           {/* <div className="professorCardDomain text-base lg:text-lg">
@@ -72,7 +73,7 @@ const ProfessorCard = ({ teacher }) => {
           </div>
         </div>
         <div className="professorIcons">
-          <div className="professorEmail socialIconsDiv">
+          <div className="professorEmail socialIconsDiv cursor-pointer">
             {contact_details ? (
               <a href={`mailto: ${contact_details}`}>
                 <img src={Gmail} alt="gmail" className="social-icons" />
@@ -87,7 +88,13 @@ const ProfessorCard = ({ teacher }) => {
             </a>
           </div> */}
           <div className="professorInfo socialIconsDiv">
-            <FaInfoCircle className="domain-icon icon  hover:text-white" />
+            <FaInfoCircle
+              className="domain-icon icon  hover:text-white"
+              onClick={() => {
+                navigate(`/professorprofile/${scholar_id}`);
+              }}
+              cursor={"pointer"}
+            />
           </div>
         </div>
       </div>

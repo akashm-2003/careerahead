@@ -16,6 +16,8 @@ const ResearchPaper = ({ onSetShowSidebar, showSidebar, selected, setSelected })
         </div>
         <div className="main-container">
           <SearchBar onSetShowSidebar={onSetShowSidebar} />
+
+          
           {/* <ResearchPaperCard/> */}
 
 
