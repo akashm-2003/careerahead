@@ -16,7 +16,7 @@ const ResearchPaperCardHome = ({ publication }) => {
     title,
   } = publication;
   return (
-    <div className="researchPaperContainerUsedHome">
+    <div className="researchPaperContainerUsedHome h-full">
       <div className="researchPaperContentUsedHome pl-4 pb-2">
         <div className="researchCardDetailsHome">
           <div className="researchCardNameHome lg:text-lg">
