@@ -7,7 +7,7 @@ import {
   doc,
   where,
 } from "firebase/firestore";
-
+import { db } from "../auth/firebase";
 const listOfColleges = [
   "IIT Bombay",
   "IIT Delhi",

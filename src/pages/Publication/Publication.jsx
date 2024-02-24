@@ -39,6 +39,7 @@ const Publication = () => {
       setLoading(false);
     }
   };
+  console.log(publication);
   useEffect(() => {
     fetchData(); // Call fetchData when the component mounts
   }, []);
@@ -67,24 +68,24 @@ const Publication = () => {
             <div className="flex lg:w-3/4 lg:pl-4 m-2  justify-center lg:mb-0 items-end">
               <div className="pub-details-summary m-1 p-2 flex flex-col place-content-center justify-between">
                 <h2 className="text-3xl font-bold mb-2 title">
-                  {publication.title || "Title"}
+                  {publication?.title || "Title"}
                 </h2>
                 <p className="author text-xl m-2">
                   Authors:{" "}
-                  {publication.author ||
+                  {publication?.author ||
                     "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto, amet."}
                 </p>
                 <p className="citation text-md m-2">
-                  Citations: {publication.citation || "citation"}
+                  Citations: {publication?.citation || "citation"}
                 </p>
                 <p className="citation-url text-lg m-2">
-                  Citation Url: {publication.citedby_url || "NA"}
+                  Citation Url: {publication?.citedby_url || "NA"}
                 </p>
                 <p className="pub-year text-md m-2">
-                  Year of Publication: {publication.pub_year || "NA"}
+                  Year of Publication: {publication?.pub_year || "NA"}
                 </p>
                 <p className="pub-year text-lg m-2">
-                  Publication Url: {publication.pub_url || "NA"}
+                  Publication Url: {publication?.pub_url || "NA"}
                 </p>
                 <button className="btn btn-primary m-4 bg-blue-400 p-2 rounded-full w-fit self-end bg-[#37b5b6]">
                   Add to read
@@ -100,7 +101,7 @@ const Publication = () => {
                   Abstract
                 </h2>
                 <p className="abstract pl-4 pr-2">
-                  {publication.abstract ||
+                  {publication?.abstract ||
                     "The abstract for this publication is not available at the moment. Please check back later or contact the author for more information."}
                 </p>
               </div>
