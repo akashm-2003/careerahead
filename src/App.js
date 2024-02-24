@@ -22,6 +22,7 @@ import { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import Logout from "./pages/Logout/Logout";
 import Publication from "./pages/Publication/Publication";
+import ProfessorProfile from "./pages/ProfessorProfile/ProfessorProfile";
 function App() {
   const [showSidebar, onSetShowSidebar] = useState(false);
   const [selected, setSelected] = useState("0");
@@ -71,6 +72,20 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/logout" element={<Logout />} />
+            <Route path="/professorprofile/">
+              <Route
+                path=":profileId"
+                element={
+                  <ProfessorProfile
+                    showSidebar={showSidebar}
+                    onSetShowSidebar={onSetShowSidebar}
+                    selected={selected}
+                    setSelected={setSelected}
+                  />
+                }
+              />
+            </Route>
+
             <Route
               path="*"
               element={

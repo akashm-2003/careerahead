@@ -12,6 +12,7 @@ import Sidebar from "../../components/Sidebar";
 import {
   fetchPublications,
   getProfessorsByCollege,
+  getProfessorsFromAllColleges,
   listOfColleges,
   getOnePublication,
   getOneProfessor,
@@ -59,12 +60,11 @@ const Dashboard = ({
   const [teacherLoading, setTeacherLoading] = useState(true);
   const getTeachers = async () => {
     setTeacherLoading(true);
-    for (const college of listOfColleges) {
-      const data = await getProfessorsByCollege(college, 2);
-      setTeacherList((prev) => [...prev, ...data]);
-    }
+    const data = await getProfessorsFromAllColleges(listOfColleges, 2);
+    setTeacherList(data);
     setTeacherLoading(false);
   };
+  console.log(teacherList);
 
   // Publication Data
   const [publications, setPublications] = useState([]);
@@ -100,7 +100,7 @@ const Dashboard = ({
         <div className="main-container">
           <SearchBar onSetShowSidebar={onSetShowSidebar} />
 
-          <div className="collegesDashboardContainer w-full p-2">
+          {/* <div className="collegesDashboardContainer w-full p-2">
             <div className="collegeHeading">
               <p className="text-base sm:text-lg md:text-xl lg:text-2xl">
                 Colleges in your favourite domain
@@ -116,9 +116,9 @@ const Dashboard = ({
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
 
-          <div className="flex flex-col lg:flex-row w-full lg:height90">
+          <div className="flex flex-col lg:flex-row w-full lg:height90 pt-10">
             <div className="flex-col w-full lg:w-2/3 p-2">
               <div className="collegeHeading">
                 <p className="text-base sm:text-lg md:text-xl lg:text-2xl">
