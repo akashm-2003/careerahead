@@ -16,6 +16,7 @@ import LandingPage from './pages/LandingPage/LandingPage';
 import { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css'
 import Logout from './pages/Logout/Logout';
+import Publication from './pages/Publication/Publication';
 function App() {
   const [showSidebar, onSetShowSidebar] = useState(false);
   const [selected, setSelected] = useState("0");
@@ -34,6 +35,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/logout" element={<Logout />} />
+            <Route path="/publication" element={<Publication />} />            
             <Route
               path="*"
               element={

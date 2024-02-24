@@ -42,7 +42,13 @@ const Publication = () => {
   useEffect(() => {
     fetchData(); // Call fetchData when the component mounts
   }, []);
-
+  const web = `https://scholar.google.com/${publication.citedby_url}`;
+  const citationUrl = () => {
+    window.open(web);
+  };
+  const publicationUrl = () => {
+    window.open(publication.pub_url);
+  };
   return (
     <>
       {/* <Sidebar
@@ -77,15 +83,15 @@ const Publication = () => {
                 <p className="citation text-md m-2">
                   Citations: {publication.citation || "citation"}
                 </p>
-                <p className="citation-url text-lg m-2">
-                  Citation Url: {publication.citedby_url || "NA"}
+                <p className="citation-url text-lg m-2 btn-link" onClick={citationUrl}>
+                  Citation Url
                 </p>
                 <p className="pub-year text-md m-2">
                   Year of Publication: {publication.pub_year || "NA"}
                 </p>
-                <p className="pub-year text-lg m-2">
+                {/* <p className="pub-year text-lg m-2">
                   Publication Url: {publication.pub_url || "NA"}
-                </p>
+                </p> */}
                 <button className="btn btn-primary m-4 bg-blue-400 p-2 rounded-full w-fit self-end bg-[#37b5b6]">
                   Add to read
                 </button>
@@ -93,8 +99,8 @@ const Publication = () => {
             </div>
           </div>
 
-          <div className="lg:flex mt-5 w-full">
-            <div className="lg:w-3/4 lg:p-4 mb-4 lg:mb-0">
+          <div className="lg:flex mt-5 w-full flex-col">
+            <div className=" lg:p-4 mb-4 lg:mb-0 m-10">
               <div>
                 <h2 className="text-3xl font-bold m-2 abstract-heading">
                   Abstract
@@ -102,18 +108,31 @@ const Publication = () => {
                 <p className="abstract pl-4 pr-2">
                   {publication.abstract ||
                     "The abstract for this publication is not available at the moment. Please check back later or contact the author for more information."}
+                  <span onClick={publicationUrl} className="btn-link">
+                    {publication.pub_url ? "read more" : " "}
+                  </span>
                 </p>
               </div>
             </div>
-            <div className="lg:w-1/4 lg:pl-4 m-1 flex flex-col">
-              <h2 className="rec-pub text-2xl mt-2 font-bold mb-2">
+            <div className="w-full lg:pl-4 m-1 m-4 flex flex-col">
+              <h2 className="rec-pub text-3xl mt-2  font-bold mb-2">
                 Recommended Publications
               </h2>
               <div className="research-Scroll">
-                <div className="research-Content m-auto">
+                <div className="research-Content justify-start m-auto">
                   <ResearchPaperCard />
                   <ResearchPaperCard />
                   <ResearchPaperCard />
+                  {/* <ResearchPaperCard />
+                  <ResearchPaperCard />
+                  <ResearchPaperCard />
+                  <ResearchPaperCard />
+                  <ResearchPaperCard />
+                  <ResearchPaperCard />
+                  <ResearchPaperCard />
+                  <ResearchPaperCard />
+                  <ResearchPaperCard />
+                  <ResearchPaperCard /> */}
                 </div>
               </div>
             </div>
