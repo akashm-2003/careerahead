@@ -30,11 +30,11 @@ const listOfColleges = [
   "IIT Varanasi",
 ];
 
-const getProfessorsFromAllColleges = async (count) => {
+const getProfessorsFromAllColleges = async (allColleges=listOfColleges, count) => {
   try {
     const professorsData = [];
 
-    for (const college of listOfColleges) {
+    for (const college of allColleges) {
       const teachersCollectionRef = collection(db, college);
       const teachersQuery = count
         ? query(teachersCollectionRef, limit(count))

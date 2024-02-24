@@ -58,7 +58,7 @@ const Dashboard = ({
   const [teacherLoading, setTeacherLoading] = useState(true);
   const getTeachers = async () => {
     setTeacherLoading(true);
-    const data = await getProfessorsFromAllColleges(1);
+    const data = await getProfessorsFromAllColleges(listOfColleges, 2);
     setTeacherList(data);
     setTeacherLoading(false);
   };

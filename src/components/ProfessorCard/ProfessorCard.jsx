@@ -23,6 +23,8 @@ const ProfessorCard = ({ teacher }) => {
     linkedin,
     image,
   } = teacher;
+
+  
   return (
     <div
       className="professorCard lg:max-w-[25em] lg:w-[50vw] w-[21em]"

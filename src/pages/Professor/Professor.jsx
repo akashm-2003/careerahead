@@ -10,135 +10,188 @@ import ProfessorCardSkeleton from "../../components/ProfessorCard/ProfessorCardS
 import "./Professor.css";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../../auth/firebase";
+import { getProfessorsFromAllColleges } from "../../data/ProfessorByCollege";
 
-
-const Professor = ({ showSidebar, onSetShowSidebar, selected, setSelected }) => {
-  const teachersCollectionRef = collection(db, "Teachers");
-  const [teachers,setTeachers]=useState({}) 
-  const [teachersLoading,setTeachersLoading]=useState(true)
-  const getTeachersDomainWise = async (domain) => {
-    const teachersData= query(teachersCollectionRef, where("details", "==", domain));
-    const querySnapshot = await getDocs(teachersData);
-    const data =[]
-    querySnapshot.forEach((doc) => {
-      data.push(doc.data())
-    });
-    // setTeachers({[domain]:data})
-    setTeachers((prev)=>({...prev,[domain]:data}))
-  }
-  const aiTeachers=async (key)=>{
-    await getTeachersDomainWise('AI')
-  }
-  const mlTeachers=async ()=>{
-    await getTeachersDomainWise('ML')
-  }
-  const nlpTeachers=async ()=>{
-    await getTeachersDomainWise('NLP')
-  }
-  const dbTeachers=async ()=>{
-    await getTeachersDomainWise('DB')
-    setTeachersLoading(false)
-  }
-console.log(teachers);
+const Professor = ({
+  showSidebar,
+  onSetShowSidebar,
+  selected,
+  setSelected,
+}) => {
+  const listOfColleges = [
+    "IIT Bombay",
+    "IIT Delhi",
+    "IIT GandhiNagar",
+    "IIT Goa",
+  ];
+  const [allProfessor, setAllProfessor] = useState([]);
+  const [teacherLoading, setTeacherLoading] = useState(true);
+  const getTeachers = async () => {
+    setTeacherLoading(true);
+    const data = await getProfessorsFromAllColleges(listOfColleges, 10);
+    setAllProfessor(data);
+    setTeacherLoading(false);
+  };
   useEffect(() => {
-    const timer = setTimeout(() => {
-      aiTeachers()
-      mlTeachers()
-      nlpTeachers()
-      dbTeachers()
-    }, 1000);
-    return () => clearTimeout(timer);
-   
-  },[])
+    getTeachers();
+  }, []);
   return (
     <>
-      <Sidebar showSidebar={showSidebar} onSetShowSidebar={onSetShowSidebar} selected={selected} setSelected={setSelected} />
+      <Sidebar
+        showSidebar={showSidebar}
+        onSetShowSidebar={onSetShowSidebar}
+        selected={selected}
+        setSelected={setSelected}
+      />
       <div className="flex w-full">
         <div className="smallerDevice-container"></div>
         <div className="main-container">
           <SearchBar onSetShowSidebar={onSetShowSidebar} />
 
-
           <div className="collegesDashboardContainer w-full p-2">
             <div className="collegeHeading">
-              <p className='text-base sm:text-lg md:text-xl lg:text-2xl'>Professors in AI</p>
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl">
+                Professors in Bombay
+              </p>
             </div>
 
             {/* <div className="rounded-lg bg-card sm:h-30 h-40"> */}
             <div className="rounded-lg bg-card ">
               <div className="professorContent">
                 <div className="professorScroll">
-                  {!teachersLoading&&teachers['AI']?teachers['AI'].map((teacher)=>(
-                    <ProfessorCard key={teacher.id} teacher={teacher} domain={teacher.details}/>
-                  )):Array.from({length:5},()=> <ProfessorCardSkeleton/>)}
+                  {/* {!teacherLoading && allProfessor["AI"]
+                    ? allProfessor["AI"].map((teacher) => (
+                        <ProfessorCard
+                          key={teacher.id}
+                          teacher={teacher}
+                          domain={teacher.details}
+                        />
+                      ))
+                    : Array.from({ length: 5 }, () => (
+                        <ProfessorCardSkeleton />
+                      ))} */}
+                  {!teacherLoading
+                    ? allProfessor
+                        .slice(0, 10)
+                        .map((teacher) => <ProfessorCard teacher={teacher} />)
+                    : Array.from({ length: 8 }, () => (
+                        <ProfessorCardSkeleton />
+                      ))}
                 </div>
               </div>
             </div>
           </div>
 
-
           <div className="collegesDashboardContainer w-full p-2">
             <div className="collegeHeading">
-              <p className='text-base sm:text-lg md:text-xl lg:text-2xl'>Professors in ML</p>
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl">
+                Professors in Delhi
+              </p>
             </div>
 
             {/* <div className="rounded-lg bg-card sm:h-30 h-40"> */}
             <div className="rounded-lg bg-card ">
               <div className="professorContent">
                 <div className="professorScroll">
-                  {!teachersLoading&&teachers['ML']?teachers['ML'].map((teacher)=>(
-                    console.log(teacher),
-                    <ProfessorCard key={teacher.id} teacher={teacher} domain={teacher.details}/>
-                  )):Array.from({length:5},()=> <ProfessorCardSkeleton/>)}
+                  {/* {!teacherLoading && allProfessor["ML"]
+                    ? allProfessor["ML"].map(
+                        (teacher) => (
+                          console.log(teacher),
+                          (
+                            <ProfessorCard
+                              key={teacher.id}
+                              teacher={teacher}
+                              domain={teacher.details}
+                            />
+                          )
+                        )
+                      )
+                    : Array.from({ length: 5 }, () => (
+                        <ProfessorCardSkeleton />
+                      ))} */}
+                  {!teacherLoading
+                    ? allProfessor
+                        .slice(10, 20)
+                        .map((teacher) => <ProfessorCard teacher={teacher} />)
+                    : Array.from({ length: 8 }, () => (
+                        <ProfessorCardSkeleton />
+                      ))}
                 </div>
               </div>
             </div>
           </div>
 
-
           <div className="collegesDashboardContainer w-full p-2">
             <div className="collegeHeading">
-              <p className='text-base sm:text-lg md:text-xl lg:text-2xl'>Professors in NLP</p>
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl">
+                Professors in GandhiNagar
+              </p>
             </div>
 
             {/* <div className="rounded-lg bg-card sm:h-30 h-40"> */}
             <div className="rounded-lg bg-card ">
               <div className="professorContent">
                 <div className="professorScroll">
-                  {!teachersLoading&&teachers['NLP']?teachers['NLP'].map((teacher)=>(
-                    <ProfessorCard key={teacher.id} teacher={teacher} domain={teacher.details}/>
-                  )):Array.from({length:5},()=> <ProfessorCardSkeleton/>)}
+                  {/* {!teacherLoading && allProfessor["NLP"]
+                    ? allProfessor["NLP"].map((teacher) => (
+                        <ProfessorCard
+                          key={teacher.id}
+                          teacher={teacher}
+                          domain={teacher.details}
+                        />
+                      ))
+                    : Array.from({ length: 5 }, () => (
+                        <ProfessorCardSkeleton />
+                      ))} */}
+                  {!teacherLoading
+                    ? allProfessor
+                        .slice(20, 30)
+                        .map((teacher) => <ProfessorCard teacher={teacher} />)
+                    : Array.from({ length: 8 }, () => (
+                        <ProfessorCardSkeleton />
+                      ))}
                 </div>
               </div>
             </div>
           </div>
 
-
-
           <div className="collegesDashboardContainer w-full p-2">
             <div className="collegeHeading">
-              <p className='text-base sm:text-lg md:text-xl lg:text-2xl'>Professors in DB</p>
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl">
+                Professors in Goa
+              </p>
             </div>
 
             {/* <div className="rounded-lg bg-card sm:h-30 h-40"> */}
             <div className="rounded-lg bg-card ">
               <div className="professorContent">
                 <div className="professorScroll">
-                  {!teachersLoading&&teachers['DB']?teachers['DB'].map((teacher)=>(
-                    <ProfessorCard key={teacher.id} teacher={teacher} domain={teacher.details}/>
-                  )):Array.from({length:5},()=> <ProfessorCardSkeleton/>)}
+                  {/* {!teacherLoading && allProfessor["DB"]
+                    ? allProfessor["DB"].map((teacher) => (
+                        <ProfessorCard
+                          key={teacher.id}
+                          teacher={teacher}
+                          domain={teacher.details}
+                        />
+                      ))
+                    : Array.from({ length: 5 }, () => (
+                        <ProfessorCardSkeleton />
+                      ))} */}
+                  {!teacherLoading
+                    ? allProfessor
+                        .slice(30, 40)
+                        .map((teacher) => <ProfessorCard teacher={teacher} />)
+                    : Array.from({ length: 8 }, () => (
+                        <ProfessorCardSkeleton />
+                      ))}
                 </div>
               </div>
             </div>
           </div>
-
-
         </div>
       </div>
-      </>
-      );
-
+    </>
+  );
 };
 
-      export default Professor;
-
+export default Professor;
