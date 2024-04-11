@@ -24,7 +24,6 @@ const ProfessorCard = ({ teacher }) => {
     image,
   } = teacher;
 
-  
   return (
     <div
       className="professorCard lg:max-w-[25em] lg:w-[50vw] w-[21em]"
@@ -93,7 +92,7 @@ const ProfessorCard = ({ teacher }) => {
             <FaInfoCircle
               className="domain-icon icon  hover:text-white"
               onClick={() => {
-                navigate(`/professorprofile/${scholar_id}`);
+                navigate(`/college/${college_name.replace(" ","%20")}/professorprofile/${scholar_id}`);
               }}
               cursor={"pointer"}
             />

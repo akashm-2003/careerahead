@@ -36,7 +36,7 @@ body {
   --unHighlightedText: #0a1d56;
 
   --bgIcon: #2d2d2d;
-  --bgCardLight: rgba(0, 0, 0, 0.1);
+  --bgCardLight: rgb(232, 254, 253);
   --bgCardDark: #1d1d1d;
 
   --hoverItem: #a1a0a0;

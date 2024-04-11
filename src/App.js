@@ -1,21 +1,21 @@
 import { useState } from "react";
-import { SkeletonTheme } from 'react-loading-skeleton';
-import 'react-loading-skeleton/dist/skeleton.css';
+import { SkeletonTheme } from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import "./App.css";
-import About from './pages/About/About';
-import Dashboard from './pages/Dashboard/Dashboard';
-import Error404Page from './pages/Error404Page/Error404Page';
-import Login from './pages/Login/Login';
-import Logout from './pages/Logout/Logout';
-import Professor from './pages/Professor/Professor';
-import Profile from './pages/Profile/Profile';
-import Publication from './pages/Publication/Publication';
-import ResearchPaper from './pages/ResearchPaper/ResearchPaper';
-import Scholarship from './pages/Scholarship/Scholarship';
-import SignUp from './pages/SignUp/SignUp';
-import Summarizer from './pages/Summarizer/Summarizer';
+import About from "./pages/About/About";
+import Dashboard from "./pages/Dashboard/Dashboard";
+import Error404Page from "./pages/Error404Page/Error404Page";
+import Login from "./pages/Login/Login";
+import Logout from "./pages/Logout/Logout";
+import Professor from "./pages/Professor/Professor";
 import ProfessorProfile from "./pages/ProfessorProfile/ProfessorProfile";
+import Profile from "./pages/Profile/Profile";
+import Publication from "./pages/Publication/Publication";
+import ResearchPaper from "./pages/ResearchPaper/ResearchPaper";
+import Scholarship from "./pages/Scholarship/Scholarship";
+import SignUp from "./pages/SignUp/SignUp";
+import Summarizer from "./pages/Summarizer/Summarizer";
 function App() {
   const [showSidebar, onSetShowSidebar] = useState(false);
   const [selected, setSelected] = useState("0");
@@ -64,20 +64,43 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/logout" element={<Logout />} />
-            <Route path="/publication" element={<Publication />} />            
-            <Route path="/professorprofile/">
-              <Route
-                path=":profileId"
-                element={
-                  <ProfessorProfile
-                    showSidebar={showSidebar}
-                    onSetShowSidebar={onSetShowSidebar}
-                    selected={selected}
-                    setSelected={setSelected}
-                  />
-                }
-              />
-            </Route>
+            <Route path="/publication" element={<Publication />} />
+            <Route
+              path="/college/:collegeId/professorprofile/:profileId"
+              element={
+                <ProfessorProfile
+                  showSidebar={showSidebar}
+                  onSetShowSidebar={onSetShowSidebar}
+                  selected={selected}
+                  setSelected={setSelected}
+                />
+              }
+            />
+            <Route
+              path="/college/:collegeId/professorprofile/:profileId/pub/:pubId" 
+              element={<Publication />}
+            />
+            {/* <Route path="/college/">
+              <Route path=":collegeId">
+                <Route path="/professorprofile/">
+                  <Route
+                    path=":profileId"
+                  >
+                    <Route path="/publication/">
+                      <Route path=":publicationId" element={<Publication />} />
+                    </Route>
+                    <Route path="/" element={
+                      <ProfessorProfile
+                        showSidebar={showSidebar}
+                        onSetShowSidebar={onSetShowSidebar}
+                        selected={selected}
+                        setSelected={setSelected}
+                      />
+                    } />
+                  </Route>
+                </Route>
+              </Route>
+            </Route> */}
 
             <Route
               path="*"

@@ -4,6 +4,7 @@
   padding: 0.5em 0.5em;
   height: 100%;
   height: fit-content;
+   
 }
 .researchPaperContentUsedHome {
   display: flex;
@@ -11,6 +12,9 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  border-radius: 0.5em ;
+  border: 1px solid rgb(119, 217, 249);
+  box-shadow:0.5em 0.5em rgb(200, 240, 253);
   max-width: 25em;
   background-color: var(--bgCardLight);
   border-radius: 0.5em;

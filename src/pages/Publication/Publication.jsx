@@ -3,7 +3,7 @@ import SearchBar from "../../components/SearchBar";
 import ResearchPaperCard from "../../components/ResearchPaperCard/ResearchPaperCard";
 import "./Publication.css";
 import { getOnePublication } from "../../data/ProfessorByCollege";
-
+import { useParams } from "react-router-dom";
 const Publication = () => {
   //     {
   //   title,
@@ -17,21 +17,12 @@ const Publication = () => {
   const [showSidebar, onSetShowSidebar] = useState(false);
   const [publication, setPublication] = useState({});
   const [loading, setLoading] = useState(false);
-
+  const { collegeId, profileId, pubId } = useParams();
+  console.log(collegeId, profileId, pubId);
   const fetchData = async () => {
-    //   setLoading(true);
-    //     const data = await getOnePublication();
-    //     console.log(data);
-    //   setPublication(data);
-    //   console.log("publication", publication);
-    //   setLoading(false);
     setLoading(true);
     try {
-      const data = await getOnePublication(
-        "aQVHUU8AAAAJ",
-        "03z20nq3CnXqG8UXTjss",
-        "IIT Madras"
-      );
+      const data = await getOnePublication();
       setPublication(data);
     } catch (error) {
       console.error("Error fetching publication:", error);
@@ -39,15 +30,16 @@ const Publication = () => {
       setLoading(false);
     }
   };
+  console.log(publication);
   useEffect(() => {
     fetchData(); // Call fetchData when the component mounts
   }, []);
-  const web = `https://scholar.google.com/${publication.citedby_url}`;
+  const web = `https://scholar.google.com/${publication?.citedby_url}`;
   const citationUrl = () => {
     window.open(web);
   };
   const publicationUrl = () => {
-    window.open(publication.pub_url);
+    window.open(publication?.pub_url);
   };
   return (
     <>
@@ -73,21 +65,24 @@ const Publication = () => {
             <div className="flex lg:w-3/4 lg:pl-4 m-2  justify-center lg:mb-0 items-end">
               <div className="pub-details-summary m-1 p-2 flex flex-col place-content-center justify-between">
                 <h2 className="text-3xl font-bold mb-2 title">
-                  {publication.title || "Title"}
+                  {publication?.title || "Title"}
                 </h2>
                 <p className="author text-xl m-2">
                   Authors:{" "}
-                  {publication.author ||
+                  {publication?.author ||
                     "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto, amet."}
                 </p>
                 <p className="citation text-md m-2">
-                  Citations: {publication.citation || "citation"}
+                  Citations: {publication?.citation || "citation"}
                 </p>
-                <p className="citation-url text-lg m-2 btn-link" onClick={citationUrl}>
+                <p
+                  className="citation-url text-lg m-2 btn-link"
+                  onClick={citationUrl}
+                >
                   Citation Url
                 </p>
                 <p className="pub-year text-md m-2">
-                  Year of Publication: {publication.pub_year || "NA"}
+                  Year of Publication: {publication?.pub_year || "NA"}
                 </p>
                 {/* <p className="pub-year text-lg m-2">
                   Publication Url: {publication.pub_url || "NA"}
@@ -106,10 +101,10 @@ const Publication = () => {
                   Abstract
                 </h2>
                 <p className="abstract pl-4 pr-2">
-                  {publication.abstract ||
+                  {publication?.abstract ||
                     "The abstract for this publication is not available at the moment. Please check back later or contact the author for more information."}
                   <span onClick={publicationUrl} className="btn-link">
-                    {publication.pub_url ? "read more" : " "}
+                    {publication?.pub_url ? "read more" : " "}
                   </span>
                 </p>
               </div>

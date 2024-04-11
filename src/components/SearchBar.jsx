@@ -108,7 +108,12 @@ const SearchBar = ({ onSetShowSidebar }) => {
           {data &&
             data.map((item) => {
               return (
-                <NavLink to={`/professorprofile/${item.id}`}>
+                <NavLink
+                  to={`/college/${item?.college_name.replace(
+                    " ",
+                    "%20"
+                  )}/professorprofile/${item.id}`}
+                >
                   <div
                     key={item.professor_name}
                     className="flex items-center justify-between p-2 searchEachItem"
