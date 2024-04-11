@@ -16,6 +16,7 @@ import {
   listOfColleges,
 } from "../../data/ProfessorByCollege";
 import "./Dashboard.css";
+import MultipleChipSelect from "../../components/MultipleChipSelect";
 const Dashboard = ({
   onSetShowSidebar,
   showSidebar,
@@ -97,7 +98,9 @@ const Dashboard = ({
         <div className="smallerDevice-container"></div>
         <div className="main-container">
           <SearchBar onSetShowSidebar={onSetShowSidebar} />
-
+          <MultipleChipSelect/>
+          <MultipleChipSelect/>
+          <MultipleChipSelect/>
           {/* <div className="collegesDashboardContainer w-full p-2">
             <div className="collegeHeading">
               <p className="text-base sm:text-lg md:text-xl lg:text-2xl">
@@ -115,8 +118,7 @@ const Dashboard = ({
               </div>
             </div>
           </div> */}
-
-          <div className="flex flex-col lg:flex-row w-full lg:height90 pt-10">
+          <div className="flex flex-col lg:flex-row w-full lg:height90 pt-2">
             <div className="flex-col w-full lg:w-2/3 p-2">
               <div className="collegeHeading">
                 <p className="text-base sm:text-lg md:text-xl lg:text-2xl">
@@ -159,7 +161,6 @@ const Dashboard = ({
               </div>
             </div>
           </div>
-
           {/* <div className="w-full p-2 lg:w-1/3">
           <div className="rounded-lg bg-card overflow-hidden h-80">
 

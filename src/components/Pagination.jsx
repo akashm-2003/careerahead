@@ -1,27 +1,40 @@
 import React from "react";
 import ReactPaginate from "react-paginate";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
+import ProfessorCard from "./ProfessorCard/ProfessorCard";
+import ResearcherCardSkeleton from "./ProfessorCard/ProfessorCardSkeleton";
 
 const Pagination = () => {
-    const paginationVariants = {
-        hidden: {
-            opacity: 0,
-            y: 100,
-        },
-        visible: {
-            opacity: 1, 
-            y: 0,
-            transition: {
-                type: 'spring',
-                stiffness: 260,
-                damping: 20,
-                duration: 0.5,
-            }
-        }
-    }
+  const paginationVariants = {
+    hidden: {
+      opacity: 0,
+      y: 100,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 260,
+        damping: 20,
+        duration: 0.5,
+      },
+    },
+  };
   return (
-    <motion.div variants={paginationVariants} initial='hidden' animate='visible'>
+    <motion.div
+      variants={paginationVariants}
+      initial="hidden"
+      animate="visible"
+    >
+      <div className="flex flex-row">
+        <ResearcherCardSkeleton />
+        <ResearcherCardSkeleton />
+        <ResearcherCardSkeleton />
+        <ResearcherCardSkeleton />
+        <ResearcherCardSkeleton />
+      </div>
       <ReactPaginate
         breakLabel={<span className="mr-4 ">...</span>}
         nextLabel={

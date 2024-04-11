@@ -22,6 +22,7 @@ import { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import Logout from "./pages/Logout/Logout";
 import ProfessorProfile from "./pages/ProfessorProfile/ProfessorProfile";
+import Publication from "./pages/Publication/Publication";
 function App() {
   const [showSidebar, onSetShowSidebar] = useState(false);
   const [selected, setSelected] = useState("0");
@@ -53,6 +54,13 @@ function App() {
                 />
               }
             />
+            <Route
+              path="/publication"
+              element={
+                <Publication />
+              }
+            />
+
             <Route
               path="/researchpaper"
               element={
