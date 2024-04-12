@@ -10,31 +10,11 @@ const SearchBar = ({ onSetShowSidebar }) => {
   const user = auth.currentUser;
   const windowWidth = window.innerWidth;
   const isMobile = windowWidth < 620;
-  // const data = [
-  //   {
-  //     name: "Akash Manna",
-  //     university: "Indian Institute of Technology Mumbai",
-  //     domain: "Computer Science and Engineering",
-  //   },
-  //   {
-  //     name: "Rahul",
-  //     university: "IIT",
-  //     domain: "Computer Science and Engineering",
-  //   },
-  //   {
-  //     name: "Deepak Parihar",
-  //     domain: "Computer Science and Engineering",
-  //     university: "MIT",
-  //   },
-  //   {
-  //     name: "Deepak",
-  //     domain: "Computer Science and Engineering",
-  //     university: "MIT",
-  //   },
-  // ];
-  // const [searchValue, setSearchValue] = useState("");
   const searchValue =useRef("");
   const [data, setData] = useState([]);
+  const currentDate = new Date();
+  const options = { month: "short", day: "numeric" };
+  const formattedDate = currentDate.toLocaleDateString(undefined, options);
   // console.log(data);
   const search = async (searchItem) => {
     console.log(searchItem);
@@ -63,7 +43,10 @@ const SearchBar = ({ onSetShowSidebar }) => {
           </div>
           <div className="flex items-center">
             <RiArrowDropRightFill size="25px" />
-            <div className="ml-2">October 26</div>
+            <div className="ml-2">{}</div>
+            
+
+            <div className="ml-{0.2em}">{formattedDate}</div>
           </div>
         </div>
         <button

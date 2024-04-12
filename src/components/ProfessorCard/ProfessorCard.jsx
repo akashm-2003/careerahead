@@ -54,7 +54,7 @@ const ProfessorCard = ({ teacher }) => {
           </div>
           <div className="professorCardUniversity text-base lg:text-lg">
             <h1 className="ProfessorCardUniversityText">
-              {college_name.includes("Indian Institute of Technology")
+              {college_name?.includes("Indian Institute of Technology")
                 ? college_name.replace("Indian Institute of Technology", "IIT")
                 : college_name}
             </h1>
@@ -64,7 +64,7 @@ const ProfessorCard = ({ teacher }) => {
           </div> */}
           <div className="professorCardAbout text-sm lg:text-base">
             <h3 className="ProfessorCardAboutText">
-              {interests.map((interest, index) => (
+              {interests?.map((interest, index) => (
                 <span key={index}>
                   {interest}
                   {index !== interests.length - 1 && ", "}

@@ -1,8 +1,7 @@
+
 import { collection, getDocs, query, where } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { db } from "../../auth/firebase";
-import CollegeCard from "../../components/CollegeCard/CollegeCard";
-import CollegeCardSkeleton from "../../components/CollegeCard/CollegeCardSkeleton";
 import ProfessorCard from "../../components/ProfessorCard/ProfessorCard";
 import ProfessorCardSkeleton from "../../components/ProfessorCard/ProfessorCardSkeleton";
 import ResearchPaperCardHome from "../../components/ResearchPaperCardHome/ResearchPaperCardHome";
@@ -11,11 +10,8 @@ import SearchBar from "../../components/SearchBar";
 import Sidebar from "../../components/Sidebar";
 import {
   fetchPublications,
-  getProfessorsByCollege,
   getProfessorsFromAllColleges,
   listOfColleges,
-  getOnePublication,
-  getOneProfessor,
 } from "../../data/ProfessorByCollege";
 import "./Dashboard.css";
 const Dashboard = ({
@@ -87,6 +83,8 @@ const Dashboard = ({
     getTeachers();
     fetchPublication();
   }, []);
+
+  
   return (
     <>
       <Sidebar
@@ -117,6 +115,8 @@ const Dashboard = ({
               </div>
             </div>
           </div> */}
+
+
 
           <div className="flex flex-col lg:flex-row w-full lg:height90 pt-10">
             <div className="flex-col w-full lg:w-2/3 p-2">

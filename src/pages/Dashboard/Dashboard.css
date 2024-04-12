@@ -1,9 +1,7 @@
 body {
   color: var(--unHighlightedText);
 }
-.highlightedText {
-  color: var(--highlightedText);
-}
+
 .universityContent {
   display: flex;
   height: 90%;

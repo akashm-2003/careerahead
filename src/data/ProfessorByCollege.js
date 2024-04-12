@@ -30,6 +30,19 @@ const listOfColleges = [
   "IIT Varanasi",
 ];
 
+const interest_groups = [
+  "Artificial Intelligence",
+  "Data Science",
+  "Computer Vision",
+  "Networks and Systems",
+  "Computational Sciences",
+  "Health and Life Sciences",
+  "Materials Science",
+  "Energy and Environment",
+  "Mathematics and Physical Sciences",
+  "Software and Systems Engineering",
+  "Miscellaneous"
+];
 const getProfessorsFromAllColleges = async (
   allColleges = listOfColleges,
   count
@@ -226,4 +239,5 @@ export {
   fetchProfessorById,
   fetchProfessorPublications,
   fetchProfessorsByNames,
+  interest_groups
 };
