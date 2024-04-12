@@ -16,6 +16,7 @@ import ResearchPaper from "./pages/ResearchPaper/ResearchPaper";
 import Scholarship from "./pages/Scholarship/Scholarship";
 import SignUp from "./pages/SignUp/SignUp";
 import Summarizer from "./pages/Summarizer/Summarizer";
+// test comment
 function App() {
   const [showSidebar, onSetShowSidebar] = useState(false);
   const [selected, setSelected] = useState("0");
