@@ -16,6 +16,7 @@ import ResearchPaper from "./pages/ResearchPaper/ResearchPaper";
 import Scholarship from "./pages/Scholarship/Scholarship";
 import SignUp from "./pages/SignUp/SignUp";
 import Summarizer from "./pages/Summarizer/Summarizer";
+import CreateSponsorship from "./pages/RegisterDetails/RegisterDetails";
 // test comment
 function App() {
   const [showSidebar, onSetShowSidebar] = useState(false);
@@ -66,6 +67,7 @@ function App() {
             <Route path="/signup" element={<SignUp />} />
             <Route path="/logout" element={<Logout />} />
             <Route path="/publication" element={<Publication />} />
+            <Route path='/registerDetails' element={<CreateSponsorship />} />
             <Route
               path="/college/:collegeId/professorprofile/:profileId"
               element={

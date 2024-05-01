@@ -2,7 +2,11 @@ import { useState } from "react";
 import logo from "../../assests/logo.png";
 import "./ResearchPaperCard.css";
 
-const ResearchPaperCard = () => {
+const ResearchPaperCard = ({publication}) => {
+
+  
+  const { title, author, abstract, pub_url, pub_year, college } = publication;
+
   const [isHovered, setIsHovered] = useState(false);
   let hoverTimer;
 
@@ -49,15 +53,17 @@ const ResearchPaperCard = () => {
           {/* Front face of the card */}
           <div className={`front-face ${isHovered ? "invisible" : ""}`}>
             <div className="flex flex-col items-center justify-center mt-5 lg:mt-8">
-              <h1 className="text-lg lg:text-2xl">Akash Manna</h1>
-              <h5 className="text-sm lg:text-base">Web Developer</h5>
+              <h1 className="text-lg lg:text-2xl">
+                {author.slice(0, 15) + "..."}
+              </h1>
+              <h5 className="text-sm lg:text-base">{college.slice(0, 15)}</h5>
 
               <h4 className="text-center text-[12px] lg:text-sm px-4 mt-1">
-                Research Paper Topic for the intended professor
+                {title?.slice(0, 75) + "..."}
               </h4>
 
               <h5 className="mt-1 mb-1 lg:text-xs" style={{ fontSize: "10px" }}>
-                -9th August 2023
+                {pub_year}
               </h5>
             </div>
           </div>
@@ -66,14 +72,22 @@ const ResearchPaperCard = () => {
           <div className="absolute inset-0 rounded-xl px-3 py-2 text-center hideFrontBackContent [transform:rotateY(180deg)] [backface-visibility:hidden]">
             <div className="flex backSideHeight flex-col items-center justify-around">
               <p className="text-[0.62em] lg:text-xs overflow-hidden h-[85%] w-full">
-                Contrary to popular belief, Lorem Ipsum is not simply random
-                text. Contrary to popular belief, Lorem Ipsum is not simply
-                random text.
+                {abstract?.slice(0, 150) + "..."}
               </p>
 
               {/* link mapping to be done here */}
 
-              <button className="rounded-md py-1 px-2 text-sm" >
+              <button
+                className="rounded-md py-1 px-2 text-sm"
+                onClick={(e) => {
+                  if (pub_url === undefined) {
+                    e.preventDefault();
+                  } else {
+                    e.preventDefault();
+                    window?.open(pub_url, "_blank");
+                  }
+                }}
+              >
                 Read More ...
               </button>
             </div>
