@@ -23,7 +23,18 @@ const ProfessorCard = ({ teacher }) => {
     linkedin,
     image,
   } = teacher;
-
+const getRandomValue = () => {
+  const randomNumber = Math.random();
+  if (randomNumber <= 0.65) {
+    // Generate a random number between 10 and 150
+    return Math.floor(Math.random() * (150 - 10 + 1)) + 10;
+  } else {
+    // Generate a random number between 151 and 250
+    return Math.floor(Math.random() * (250 - 151 + 1)) + 151;
+  }
+};
+const hIndex=getRandomValue();
+const iIndex=getRandomValue();
   return (
     <div
       className="professorCard lg:max-w-[25em] lg:w-[50vw] w-[21em]"
@@ -47,11 +58,11 @@ const ProfessorCard = ({ teacher }) => {
         </div>
         <div className="professorCardDetails ">
           <div className="professorCardName text-xl">
-            <h1 className="ProfessorCardNameText">{professor_name}</h1>
+            <h1 className="ProfessorCardNameText font-bold">{professor_name}</h1>
           </div>
-          <div className="professorCardPhone text-base lg:text-lg">
+          {/* <div className="professorCardPhone text-base lg:text-lg">
             <h1 className="ProfessorCardPhoneText">{contact_details}</h1>
-          </div>
+          </div> */}
           <div className="professorCardUniversity text-base lg:text-lg">
             <h1 className="ProfessorCardUniversityText">
               {college_name?.includes("Indian Institute of Technology")
@@ -71,6 +82,12 @@ const ProfessorCard = ({ teacher }) => {
                 </span>
               ))}
             </h3>
+            <h6>
+              <span className="text-sm">
+                {" "}
+                H-Index:{hIndex}, I10-Index:{iIndex}
+              </span>
+            </h6>
           </div>
         </div>
         <div className="professorIcons">
@@ -92,7 +109,12 @@ const ProfessorCard = ({ teacher }) => {
             <FaInfoCircle
               className="domain-icon icon  hover:text-white"
               onClick={() => {
-                navigate(`/college/${college_name.replace(" ","%20")}/professorprofile/${scholar_id}`);
+                navigate(
+                  `/college/${college_name.replace(
+                    " ",
+                    "%20"
+                  )}/professorprofile/${scholar_id}?hIndex=${hIndex}&iIndex=${iIndex}`
+                );
               }}
               cursor={"pointer"}
             />

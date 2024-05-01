@@ -4,6 +4,7 @@ import { MdLocationOn } from "react-icons/md";
 import { RiMailFill } from "react-icons/ri";
 import { SiGooglescholar } from "react-icons/si";
 import { AiOutlineNodeIndex } from "react-icons/ai";
+import { useLocation, useParams } from "react-router-dom";
 const ListItem = ({ icon, title, value, link, skeleton = false }) => {
   return (
     <a
@@ -55,16 +56,10 @@ const ProfessorDetailsCard = ({ profile, loading }) => {
 
     return array;
   };
-  const getRandomValue = () => {
-    const randomNumber = Math.random();
-    if (randomNumber <= 0.65) {
-      // Generate a random number between 10 and 150
-      return Math.floor(Math.random() * (150 - 10 + 1)) + 10;
-    } else {
-      // Generate a random number between 151 and 250
-      return Math.floor(Math.random() * (250 - 151 + 1)) + 151;
-    }
-  };
+   const location = useLocation();
+   const searchParams = new URLSearchParams(location.search);
+   const hIndex = searchParams.get("hIndex");
+   const iIndex = searchParams.get("iIndex");
   return (
     <div
       className="card shadow-lg compact bg-base-100 rounded-2xl p-4"
@@ -113,14 +108,14 @@ const ProfessorDetailsCard = ({ profile, loading }) => {
                 <ListItem
                   icon={<AiOutlineNodeIndex />}
                   title="H-index:"
-                  value={getRandomValue()}
+                  value={hIndex}
                 />
               )}
               {profile && (
                 <ListItem
                   icon={<AiOutlineNodeIndex />}
                   title="i10-index:"
-                  value={getRandomValue()}
+                  value={iIndex}
                 />
               )}
             </Fragment>

@@ -32,14 +32,15 @@ const ResearchPaperCard = ({publication}) => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="group lg:w-[200px] lg:h-[280px] w-[160px] [perspective:1000px] h-[220px] researchPaperCardInnerContainer">
+      <div className="group lg:w-[220px] lg:h-[330px] w-[160px] [perspective:1000px] h-[220px] researchPaperCardInnerContainer ">
         <div className="relative rounded-xl border-2 border-white h-full w-full transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
           <div
-            className="rounded-lg inset-0 flex flex-col h-[70px] lg:h-[90px] items-center justify-center"
+            className="rounded-lg inset-0 flex flex-col h-[70px] lg:h-[90px] items-center justify-center researchPaperCardFront"
             style={{
               backgroundImage: `url("https://picsum.photos/200/300")`,
               backgroundSize: "cover",
             }}
+            
           >
             <div className="h-[60px] w-[60px] bg-white rounded-full top-7 lg:top-11 relative">
               <img
@@ -52,14 +53,14 @@ const ResearchPaperCard = ({publication}) => {
 
           {/* Front face of the card */}
           <div className={`front-face ${isHovered ? "invisible" : ""}`}>
-            <div className="flex flex-col items-center justify-center mt-5 lg:mt-8">
-              <h1 className="text-lg lg:text-2xl">
-                {author.slice(0, 15) + "..."}
+            <div className="flex flex-col items-center justify-center mt-5 lg:mt-8  text-center text-wrap">
+              <h1 className="text-sm lg:text-sm font-bold flex-wrap">
+                {title?.slice(0, 50) + "..."}
               </h1>
               <h5 className="text-sm lg:text-base">{college.slice(0, 15)}</h5>
 
               <h4 className="text-center text-[12px] lg:text-sm px-4 mt-1">
-                {title?.slice(0, 75) + "..."}
+                {author.slice(0,20) + "..."}
               </h4>
 
               <h5 className="mt-1 mb-1 lg:text-xs" style={{ fontSize: "10px" }}>

@@ -5,7 +5,7 @@ export const sidebarItems = [
       { id: "2", title: "Research Paper", notifications: false  , endpoint:'/researchpaper'},
       // { id: "3", title: "Summarizer", notifications: false , endpoint:'/summarizer' },
       // { id: "4", title: "Scholarship", notifications: false , endpoint:'/scholarship' },
-      { id: "5", title: "About", notifications: false  , endpoint:'/about'},
+      // { id: "5", title: "About", notifications: false  , endpoint:'/about'},
       { id: "6", title: "Logout", notifications: false , endpoint:'/logout' },
     ],
     [
