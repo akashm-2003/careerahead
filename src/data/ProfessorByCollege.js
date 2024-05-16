@@ -157,6 +157,7 @@ const getOnePublication = async (
     console.log(error);
   }
 };
+
 const fetchProfessorById = async (professorId) => {
   for (const college of listOfColleges) {
     try {
