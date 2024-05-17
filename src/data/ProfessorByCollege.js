@@ -178,7 +178,26 @@ const fetchProfessorById = async (professorId) => {
     }
   }
 };
+const fetchProfessorByIdByCollege = async (professorId, college) => {
+  try {
+    // Iterate through each college in the list
+    for (const college of listOfColleges) {
+      const professorRef = doc(db, college, professorId); // Reference the professor document
+      const professorSnapshot = await getDoc(professorRef); // Get the document snapshot
 
+      if (professorSnapshot.exists()) {
+        // If the document exists, return its data
+        return professorSnapshot.data();
+      }
+    }
+
+    // If no document is found, return null
+    return null;
+  } catch (error) {
+    console.error(`Error fetching publications for ${college}:`, error);
+  }
+
+}
 const fetchProfessorsByNames = async (professorName) => {
   try {
     if (!professorName) {
@@ -239,5 +258,6 @@ export {
   fetchProfessorById,
   fetchProfessorPublications,
   fetchProfessorsByNames,
-  interest_groups
+  interest_groups,
+  fetchProfessorByIdByCollege,
 };

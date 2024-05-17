@@ -3,7 +3,6 @@ import { ProfessorProfileSkeleton } from "./ProfessorProfileSkeleton";
 
 const BlogCard = ({ loading, blog, publications, showMore, setShowMore }) => {
   // const [articles, setArticles] = useState(null);
-  console.log(publications[0]);
 
   const renderArticles = () => {
     return (

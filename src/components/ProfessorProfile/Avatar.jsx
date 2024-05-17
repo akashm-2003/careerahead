@@ -3,7 +3,7 @@ import { ProfessorProfileSkeleton } from "./ProfessorProfileSkeleton";
 import LazyImage from "./ProfessorProfileLazyImage";
 import professoricon from "../../assests/professor-icon.jpg";
 const Avatar = ({ profile, loading }) => {
-  console.log(profile);
+
   const avatarRing = true;
 
   return (

@@ -7,6 +7,7 @@ import ProfessorDetailsCard from "../../components/ProfessorProfile/ProfessorDet
 import SkillCard from "../../components/ProfessorProfile/SkillCard";
 import {
   fetchProfessorById,
+  fetchProfessorByIdByCollege,
   fetchProfessorPublications,
 } from "../../data/ProfessorByCollege";
 
@@ -19,23 +20,23 @@ const ProfessorProfile = ({
   const [loading, setLoading] = useState(true);
   const [profile, setProfile] = useState({});
   const { profileId } = useParams();
+  const { collegeId } = useParams();
+  console.log(collegeId);
   const fetchProfessor = async () => {
     setLoading(true);
-    const data = await fetchProfessorById(profileId);
-
+    const data = await fetchProfessorByIdByCollege(profileId, collegeId);
     setProfile(data);
     setLoading(false);
-
     setPublicationLoading(true);
     const data1 = await fetchProfessorPublications(
       profileId,
       data.college_name,
       25
     );
+
     setPublications(data1);
     setPublicationLoading(false);
   };
-
   const [showMore, setShowMore] = useState(false);
   const [publications, setPublications] = useState([]);
   const [publicationLoading, setPublicationLoading] = useState(true);
@@ -46,7 +47,6 @@ const ProfessorProfile = ({
   useEffect(() => {
     mainFunction();
   }, []);
-  console.log(publications);
   return (
     // <>
     //   <Sidebar
