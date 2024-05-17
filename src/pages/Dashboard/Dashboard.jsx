@@ -14,6 +14,7 @@ import {
   listOfColleges,
 } from "../../data/ProfessorByCollege";
 import "./Dashboard.css";
+import { ToastContainer } from "react-toastify";
 const Dashboard = ({
   onSetShowSidebar,
   showSidebar,
@@ -57,10 +58,10 @@ const Dashboard = ({
   const getTeachers = async () => {
     setTeacherLoading(true);
     const data = await getProfessorsFromAllColleges(listOfColleges, 2);
+    data.sort((a, b) => b.total_citations - a.total_citations);
     setTeacherList(data);
     setTeacherLoading(false);
   };
-  console.log(teacherList);
 
   // Publication Data
   const [publications, setPublications] = useState([]);
@@ -75,10 +76,11 @@ const Dashboard = ({
       countOfProfessor,
       countOfPaper
     );
+    publicationsData.sort((a, b) => b.num_citations - a.num_citations);
     setPublications(publicationsData);
     setPublicationLoading(false);
   };
-  console.log(publications);
+
   useEffect(() => {
     getTeachers();
     fetchPublication();
@@ -116,8 +118,6 @@ const Dashboard = ({
             </div>
           </div> */}
 
-
-
           <div className="flex flex-col lg:flex-row w-full lg:height90 pt-10">
             <div className="flex-col w-full lg:w-2/3 p-2">
               <div className="collegeHeading">
@@ -130,10 +130,10 @@ const Dashboard = ({
                   <div className="professorCardHomeInnerContainer">
                     {!teacherLoading
                       ? teacherList.map((teacher) => (
-                          <ProfessorCard teacher={teacher} />
+                          <ProfessorCard key={teacher.id} teacher={teacher} />
                         ))
                       : Array.from({ length: 8 }, () => (
-                          <ProfessorCardSkeleton />
+                          <ProfessorCardSkeleton key={Math.random()} />
                         ))}
                   </div>
                 </div>
@@ -154,7 +154,7 @@ const Dashboard = ({
                           <ResearchPaperCardHome publication={publication} />
                         ))
                       : Array.from({ length: 6 }, () => (
-                          <ResearchPaperCardHomeSkeleton />
+                          <ResearchPaperCardHomeSkeleton key={Math.random()} />
                         ))}
                   </div>
                 </div>
@@ -169,6 +169,7 @@ const Dashboard = ({
         </div> */}
         </div>
       </div>
+      <ToastContainer />
     </>
   );
 };

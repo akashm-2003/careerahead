@@ -63,7 +63,7 @@ const ProfessorDetailsCard = ({ profile, loading }) => {
   return (
     <div
       className="card shadow-lg compact bg-base-100 rounded-2xl p-4"
-      style={{ backgroundColor: "rgb(236,239,244)" }}
+      style={{ backgroundColor: "white" }}
     >
       <div className="card-body">
         <div className="text-base-content text-opacity-60">
@@ -116,6 +116,13 @@ const ProfessorDetailsCard = ({ profile, loading }) => {
                   icon={<AiOutlineNodeIndex />}
                   title="i10-index:"
                   value={iIndex}
+                />
+              )}
+              {profile?.total_citations && (
+                <ListItem
+                  icon={<AiOutlineNodeIndex />}
+                  title="Total Citations:"
+                  value={profile.total_citations}
                 />
               )}
             </Fragment>

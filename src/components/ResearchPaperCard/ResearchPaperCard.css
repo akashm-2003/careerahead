@@ -18,7 +18,7 @@
   border-radius: 0.5em;
   background-color:var(--bgCardLight);
   border-radius: 0.5em;
-  box-shadow:0.5em 0.5em rgb(200, 240, 253);
+  /* box-shadow:0.5em 0.5em rgb(200, 240, 253); */
 }
 .backFaceResearchCard {
   backface-visibility: hidden;

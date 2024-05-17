@@ -82,6 +82,7 @@ const iIndex=getRandomValue();
                 </span>
               ))}
             </h3>
+            {total_citations?<h6> <b>Total Citation: {total_citations}</b></h6>:""}
             <h6>
               <span className="text-sm">
                 {" "}

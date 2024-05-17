@@ -17,6 +17,7 @@ import Scholarship from "./pages/Scholarship/Scholarship";
 import SignUp from "./pages/SignUp/SignUp";
 import Summarizer from "./pages/Summarizer/Summarizer";
 import CreateSponsorship from "./pages/RegisterDetails/RegisterDetails";
+import "react-toastify/dist/ReactToastify.css";
 // test comment
 function App() {
   const [showSidebar, onSetShowSidebar] = useState(false);

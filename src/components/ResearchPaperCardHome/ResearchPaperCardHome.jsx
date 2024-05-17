@@ -20,7 +20,7 @@ const ResearchPaperCardHome = ({ publication }) => {
       <div className="researchPaperContentUsedHome pl-4 pb-2">
         <div className="researchCardDetailsHome">
           <div className="researchCardNameHome lg:text-lg">
-            <h1 className="researchCardNameTextHome">
+            <h1 className="researchCardNameTextHome font-semibold weigh">
               {title.slice(0, 50)}...
             </h1>
           </div>
@@ -30,11 +30,11 @@ const ResearchPaperCardHome = ({ publication }) => {
               {pub_year ? pub_year : ""}
             </h1>
           </div>
-          <div className="researchCardDetailsHome">
-            <h1 className="researchCardDetailsTextHome">
+          {num_citations?<div className="researchCardDetailsHome">
+            <h1 className="researchCardDetailsTextHome font-medium">
               Number of Citation: {num_citations ? num_citations : ""}
             </h1>
-          </div>
+          </div>:""}
           <div className="researchCardDetailsHome">
             <h1 className="researchCardDetailsTextHome">
               {college ? college : ""}

@@ -36,7 +36,7 @@ const Professor = ({
   const getTeachers = async () => {
     setTeacherLoading(true);
     const data = await getProfessorsFromAllColleges(defaultColleges, 10);
-    setAllProfessor(data);
+    setAllProfessor(data.sort((a, b) => b.total_citations - a.total_citations));
     setTeacherLoading(false);
   };
   useEffect(() => {
@@ -102,8 +102,11 @@ const filterProfessor  =  async (college, domain) => {
 useEffect(() => {
   if(filterCollege.length || domainFilter){
   filterProfessor(filterCollege, domainFilter).then((response) => {
-    setFilterProfessorData(response.data);
+    setFilterProfessorData(
+      response.data.sort((a, b) => b.total_citations - a.total_citations)
+    );
   });
+  
 }
 },[filterCollege, domainFilter])
 return (
@@ -233,17 +236,7 @@ return (
                   <div className="rounded-lg bg-card ">
                     <div className="professorContent">
                       <div className="professorScroll">
-                        {/* {!teacherLoading && allProfessor["AI"]
-                    ? allProfessor["AI"].map((teacher) => (
-                        <ProfessorCard
-                          key={teacher.id}
-                          teacher={teacher}
-                          domain={teacher.details}
-                        />
-                      ))
-                    : Array.from({ length: 5 }, () => (
-                        <ProfessorCardSkeleton />
-                      ))} */}
+       
                         {!teacherLoading
                           ? allProfessor
                               .slice(0, 10)
@@ -363,7 +356,7 @@ return (
                               .map((teacher) => (
                                 <ProfessorCard teacher={teacher} />
                               ))
-                          : Array.from({ length: 8 }, () => (
+                          : Array.from({ length: 4   }, () => (
                               <ProfessorCardSkeleton />
                             ))}
                       </div>

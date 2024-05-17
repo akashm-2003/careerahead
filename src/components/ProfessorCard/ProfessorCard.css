@@ -14,7 +14,7 @@
     background-color:var(--bgCardLight);
     border-radius: 0.5em;
     border: 1px solid rgb(119, 217, 249);
-    box-shadow:0.5em 0.5em rgb(200, 240, 253);
+    /* box-shadow:0.5em 0.5em rgb(200, 240, 253); */
     padding: 0 0.5em 0 0;
 }
 .professorCardImage{

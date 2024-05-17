@@ -24,7 +24,7 @@ const BlogCard = ({ loading, blog, publications, showMore, setShowMore }) => {
         >
           <div
             className="mx-5 mb-5 rounded-2xl"
-            style={{ backgroundColor: "rgb(236,239,244) " }}
+            style={{ backgroundColor: "white" }}
           >
             <div className="flex items-center flex-col md:flex-row">
               <div className="w-full">
@@ -211,7 +211,7 @@ const BlogCard = ({ loading, blog, publications, showMore, setShowMore }) => {
                 : "shadow-lg"
             }`}
           >
-            <div className="card-body">
+            <div className="card-body" style={{ backgroundColor: "#f0f3ff" }}>
               <div className="mx-3 mb-2">
                 <h5 className="card-title">
                   {loading ? (

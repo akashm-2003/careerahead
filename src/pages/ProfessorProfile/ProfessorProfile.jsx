@@ -16,9 +16,9 @@ const ProfessorProfile = ({
   selected,
   setSelected,
 }) => {
-  const { profileId } = useParams();
   const [loading, setLoading] = useState(true);
   const [profile, setProfile] = useState({});
+  const { profileId } = useParams();
   const fetchProfessor = async () => {
     setLoading(true);
     const data = await fetchProfessorById(profileId);
@@ -64,7 +64,7 @@ const ProfessorProfile = ({
           <div className="fade-in h-screen ">
             <div
               className={`p-4 lg:p-10 min-h-full bg-base-300`}
-              style={{ backgroundColor: "rgb(216,222,233)" }}
+              style={{ backgroundColor: "#E8FEFD" }}
             >
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 rounded-box">
                 <div className="col-span-1">

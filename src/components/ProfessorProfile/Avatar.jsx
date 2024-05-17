@@ -9,7 +9,7 @@ const Avatar = ({ profile, loading }) => {
   return (
     <div
       className="card shadow-lg compact bg-base-100 rounded-2xl"
-      style={{ backgroundColor: "rgb(236,239,244)" }}
+      style={{ backgroundColor: "white" }}
     >
       <div className="grid place-items-center py-8">
         {loading || !profile ? (

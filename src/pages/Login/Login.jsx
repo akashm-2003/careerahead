@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import LinkedIn from "../../assests/linkedin.png";
-
+import { ToastContainer,toast } from "react-toastify";
 import "./Login.css";
 import { NavLink, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword, signInWithPopup } from "@firebase/auth";
@@ -24,10 +24,9 @@ const Login = () => {
   const login = async () => {
     try {
       const res=await signInWithEmailAndPassword(auth, email, password)
-      navigate("/")
+      navigate("/registerDetails");
     } catch (err) {
-      alert(err.message)
-      console.error(err);
+      toast.error(err.message);
     }
   };
 
@@ -35,7 +34,7 @@ const Login = () => {
   const signInWithGoogle = async () => {
     try {
       await signInWithPopup(auth, googleProvider);
-      navigate("/")
+      navigate("/registerDetails");
     } catch (err) {
       console.error(err);
     }
@@ -114,6 +113,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
