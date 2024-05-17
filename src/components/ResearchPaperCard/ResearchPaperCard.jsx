@@ -5,7 +5,8 @@ import "./ResearchPaperCard.css";
 const ResearchPaperCard = ({publication}) => {
 
   
-  const { title, author, abstract, pub_url, pub_year, college } = publication;
+  const { title, author, abstract, pub_url, pub_year, college, num_citations } =
+    publication;
 
   const [isHovered, setIsHovered] = useState(false);
   let hoverTimer;
@@ -37,10 +38,9 @@ const ResearchPaperCard = ({publication}) => {
           <div
             className="rounded-lg inset-0 flex flex-col h-[70px] lg:h-[90px] items-center justify-center researchPaperCardFront"
             style={{
-              backgroundImage: `url("https://picsum.photos/200/300")`,
+              backgroundImage: `url("https://as2.ftcdn.net/v2/jpg/05/18/69/35/1000_F_518693540_S66IIgnR4XhlmOwRC13kdfl31NXOXDbb.jpg")`,
               backgroundSize: "cover",
             }}
-            
           >
             <div className="h-[60px] w-[60px] bg-white rounded-full top-7 lg:top-11 relative">
               <img
@@ -60,10 +60,12 @@ const ResearchPaperCard = ({publication}) => {
               <h5 className="text-sm lg:text-base">{college.slice(0, 15)}</h5>
 
               <h4 className="text-center text-[12px] lg:text-sm px-4 mt-1">
-                {author.slice(0,20) + "..."}
+                {author.slice(0, 20) + "..."}
               </h4>
-
-              <h5 className="mt-1 mb-1 lg:text-xs" style={{ fontSize: "10px" }}>
+              <h5 className="mt-1  lg:text-xs font-semibold" style={{ fontSize: "10px" }}>
+                Citation: {num_citations}
+              </h5>
+              <h5 className="mb-1 lg:text-xs" style={{ fontSize: "10px" }}>
                 {pub_year}
               </h5>
             </div>
